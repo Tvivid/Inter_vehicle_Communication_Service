@@ -16,6 +16,8 @@ public interface CustomizingSettingMapper {
                           @Param("emoji_color") String emojiColor,
                           @Param("member_id") String memberId);
 
+    int insert (customizing_setting customizing_setting);
+
 
 
 }

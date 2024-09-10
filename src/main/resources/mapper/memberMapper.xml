@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lab4dx.inter_vehicle_communication_service.mapper.CustomizingSettingMapper">
-    </mapper>
+<mapper namespace="com.lab4dx.inter_vehicle_communication_service.mapper.MemberMapper">
+    <insert id="insertMember">
+        INSERT INTO MEMBER (MEMBER_ID, PASSWORD, USERNAME, PHONE_NUMBER) VALUES (#{member_id}, #{password}, #{username}, #{phone})
+    </insert>
+
+
+    <update id="updateMember">
+        UPDATE MEMBER SET PASSWORD = #{password}, USERNAME = #{username}, PHONE_NUMBER = #{phone}
+    </update>
+
+
+    <delete id="deleteMember">
+        DELETE FROM MEMBER WHERE MEMBER_ID = #{member_id}
+    </delete>
+
+
+    <select id="selectMemberById" resultType="com.lab4dx.inter_vehicle_communication_service.dto.Member">
+        SELECT * FROM MEMBER WHERE MEMBER_ID = #{member_id}
+    </select>
+</mapper>

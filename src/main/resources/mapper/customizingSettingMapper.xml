@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lab4dx.inter_vehicle_communication_service.mapper.CustomizingSettingMapper">
+    <insert id="insert">
+    INSERT INTO CUSTOMIZING_SETTING (MEMBER_ID, EMOJI_ID, MESSAGE, IMAGE_PATH, EMOJI_COLOR) VALUES (#{member_id}, #{emoji_id}, #{message}, #{image_path}, #{emoji_color})
+    </insert>
     <update id="updateIconSetting">
         UPDATE Customizing_Setting
         SET emoji_id = #{emoji_id},
@@ -11,5 +14,6 @@
             resultType="com.lab4dx.inter_vehicle_communication_service.dto.customizing_setting">
         SELECT * FROM Customizing_Setting WHERE MEMBER_ID = #{member_id}
     </select>
+
 
 </mapper>
