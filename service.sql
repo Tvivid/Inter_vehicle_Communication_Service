@@ -33,7 +33,7 @@ CREATE TABLE c##lab4dx.Customizing_Setting(
 CREATE TABLE c##lab4dx.Default_Text(
     text_id VARCHAR(15) PRIMARY KEY ,
     text VARCHAR(100),
-    setiment VARCHAR(10)
+    sentiment VARCHAR(10)
 );
 
 CREATE TABLE c##lab4dx.Default_Setting(
