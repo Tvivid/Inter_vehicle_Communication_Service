@@ -5,9 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class InterVehicleCommunicationServiceApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(InterVehicleCommunicationServiceApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(InterVehicleCommunicationServiceApplication.class, args);
+    }
 }

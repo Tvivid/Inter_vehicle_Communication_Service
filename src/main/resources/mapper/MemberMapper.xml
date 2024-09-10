@@ -7,6 +7,12 @@
         SELECT * FROM MEMBER
         WHERE member_id = #{memberId} AND password = #{password}
     </select>
+  
+    <!-- 사용자 ID로 회원 정보를 조회 -->
+    <select id="findById" parameterType="String" resultType="com.lab4dx.inter_vehicle_communication_service.dto.Member">
+        SELECT * FROM Member
+        WHERE member_id = #{memberId}
+    </select>
 
     <!-- 모든 회원 조회 -->
     <select id="getAllMember" resultType="com.lab4dx.inter_vehicle_communication_service.dto.Member">
@@ -33,3 +39,4 @@
         DELETE FROM MEMBER WHERE member_id = #{memberId}
     </delete>
 </mapper>
+
