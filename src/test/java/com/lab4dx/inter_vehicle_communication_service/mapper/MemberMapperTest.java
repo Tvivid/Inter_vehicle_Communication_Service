@@ -1,16 +1,24 @@
 package com.lab4dx.inter_vehicle_communication_service.mapper;
 
+
+
+
 import com.lab4dx.inter_vehicle_communication_service.dto.Member;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import static org.assertj.core.api.Assertions.assertThat;
+
+
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-public class MemberMapperTest {
+class MemberMapperTest {
+
 
     @Autowired
     private MemberMapper memberMapper;
+
 
     @Test
     public void testInsertMember() {
@@ -30,3 +38,4 @@ public class MemberMapperTest {
         assertThat(insertedMember.getUsername()).isEqualTo("JohnDoe");
     }
 }
+

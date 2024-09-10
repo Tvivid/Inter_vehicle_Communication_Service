@@ -3,10 +3,12 @@ package com.lab4dx.inter_vehicle_communication_service.controller;
 import com.lab4dx.inter_vehicle_communication_service.dto.Member;
 import com.lab4dx.inter_vehicle_communication_service.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/members")
@@ -14,6 +16,7 @@ public class MemberController {
 
     @Autowired
     private MemberService memberService;
+
 
     // 새로운 회원 추가
     @PostMapping
@@ -44,3 +47,4 @@ public class MemberController {
         return ResponseEntity.ok(members);
     }
 }
+

@@ -7,11 +7,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Member {
-    private String memberId; 
-    private String password;
-    private String username;
-    private String phoneNumber;
-
+public class Default_Text {
+    private String text_id;
+    private String sentiment;
+    private String text;
 }
-

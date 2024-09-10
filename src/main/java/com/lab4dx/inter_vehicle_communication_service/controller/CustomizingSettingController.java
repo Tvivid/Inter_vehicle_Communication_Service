@@ -1,50 +1,56 @@
 package com.lab4dx.inter_vehicle_communication_service.controller;
 
 import com.lab4dx.inter_vehicle_communication_service.dto.CustomizingSetting;
-import com.lab4dx.inter_vehicle_communication_service.service.CustomizingSettingService;
+
+
+import com.lab4dx.inter_vehicle_communication_service.mapper.CustomizingSettingMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-@RestController
-@RequestMapping("/custom-settings")
+@Controller
+@RequestMapping("/customizing")
 public class CustomizingSettingController {
 
+    private static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/uploads";
+
     @Autowired
-    private CustomizingSettingService customizingSettingService;
+    private CustomizingSettingMapper customizingSettingMapper;
 
-    // 새로운 커스터마이징 설정 추가
-    @PostMapping
-    public ResponseEntity<String> addSetting(@RequestBody CustomizingSetting setting) {
-        customizingSettingService.insertSetting(setting);
-        return ResponseEntity.ok("Customizing setting added successfully");
-    }
+    @PostMapping("/upload")
+    public ResponseEntity<String> uploadImage(@RequestParam("memberId") String memberId,
+                                              @RequestParam("emojiId") int emojiId,
+                                              @RequestParam("message") String message,
+                                              @RequestParam("emojiColor") String emojiColor,
+                                              @RequestParam("image") MultipartFile file) throws IOException {
 
-    // 커스터마이징 설정 업데이트
-    @PutMapping("/{memberId}/{emojiId}")
-    public ResponseEntity<String> updateSetting(@PathVariable String memberId,
-                                                @PathVariable String emojiId,
-                                                @RequestBody CustomizingSetting setting) {
+        // 이미지 파일을 서버에 저장
+        String fileName = file.getOriginalFilename();
+        Path filePath = Paths.get(UPLOAD_DIRECTORY, fileName);
+        Files.copy(file.getInputStream(), filePath);
+
+        // 이미지 경로를 DB에 저장할 CustomizingSetting 객체 생성
+        CustomizingSetting setting = new CustomizingSetting();
         setting.setMemberId(memberId);
         setting.setEmojiId(emojiId);
-        customizingSettingService.updateSetting(setting);
-        return ResponseEntity.ok("Customizing setting updated successfully");
+        setting.setMessage(message);
+        setting.setEmojiColor(emojiColor);
+        setting.setImagePath(filePath.toString());  // 이미지 경로를 설정
+
+        // DB에 삽입
+        customizingSettingMapper.insertSetting(setting);
+
+        return ResponseEntity.ok("File uploaded successfully: " + fileName);
     }
 
-    // 특정 회원과 이모지의 커스터마이징 설정 조회
-    @GetMapping("/{memberId}/{emojiId}")
-    public ResponseEntity<CustomizingSetting> getSettingByMemberAndEmoji(@PathVariable String memberId,
-                                                                         @PathVariable String emojiId) {
-        CustomizingSetting setting = customizingSettingService.getSettingByMemberAndEmoji(memberId, emojiId);
-        return ResponseEntity.ok(setting);
-    }
 
-    // 특정 회원의 모든 커스터마이징 설정 조회
-    @GetMapping("/{memberId}")
-    public ResponseEntity<List<CustomizingSetting>> getSettingsByMemberId(@PathVariable String memberId) {
-        List<CustomizingSetting> settings = customizingSettingService.getSettingsByMemberId(memberId);
-        return ResponseEntity.ok(settings);
-    }
 }
