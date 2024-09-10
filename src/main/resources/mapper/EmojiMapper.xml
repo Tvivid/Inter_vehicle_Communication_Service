@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lab4dx.inter_vehicle_communication_service.mapper.EmojiMapper">
+
+    <!-- 이모지 추가 -->
+    <insert id="insertEmoji">
+        INSERT INTO Emoji (EMOJI_ID)
+        VALUES (#{emojiId})
+    </insert>
+
+    <!-- 이모지 ID로 이모지 조회 -->
+    <select id="selectEmojiById" resultType="com.lab4dx.inter_vehicle_communication_service.dto.Emoji">
+        SELECT * FROM Emoji WHERE EMOJI_ID = #{emojiId}
+    </select>
+
+    <!-- 이모지 삭제 -->
+    <delete id="deleteEmoji">
+        DELETE FROM Emoji WHERE EMOJI_ID = #{emojiId}
+    </delete>
+
+    <!-- 모든 이모지 조회 -->
+    <select id="getAllEmojis" resultType="com.lab4dx.inter_vehicle_communication_service.dto.Emoji">
+        SELECT * FROM Emoji
+    </select>
+
+</mapper>

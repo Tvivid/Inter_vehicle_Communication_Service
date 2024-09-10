@@ -4,11 +4,12 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter@Setter@ToString
+@Getter
+@Setter
+@ToString
 public class Member {
-    private int member_id;
+    private String memberId;  // 필드를 카멜 케이스로 변경
     private String password;
     private String username;
-    private String email;
-    private String phone;
+    private String phoneNumber;
 }

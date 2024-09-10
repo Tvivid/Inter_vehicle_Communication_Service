@@ -6,8 +6,8 @@ import lombok.ToString;
 
 @Getter@Setter@ToString
 public class CustomizingSetting {
-    private int memberId;
-    private int emojiId;
+    private String memberId;
+    private String emojiId;
     private String message;
     private String imagePath;
     private String emojiColor;

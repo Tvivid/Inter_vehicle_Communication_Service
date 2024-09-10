@@ -1,13 +1,15 @@
 package com.lab4dx.inter_vehicle_communication_service.mapper;
 
 import com.lab4dx.inter_vehicle_communication_service.dto.Member;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface MemberMapper {
-    Member getMemberByIdAndPassword(String userId, String password);
-    List<Member> getAllMembers();
     void insertMember(Member member);
     void updateMember(Member member);
-    void deleteMember(int memberId);
+    Member selectMemberById(String memberId);
+    List<Member> getAllMembers();
 }

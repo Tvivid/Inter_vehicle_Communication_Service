@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lab4dx.inter_vehicle_communication_service.mapper.CustomizingSettingMapper">
-    <select id="getSettingByMemberAndEmoji"
-            resultType="com.lab4dx.inter_vehicle_communication_service.dto.CustomizingSetting">
-        SELECT * FROM CUSTOMIZING_SETTING WHERE MEMBER_ID = #{memberId} AND EMOJI_ID = #{emojiId}
-    </select>
-    <select id="getAllSetting"
-            resultType="com.lab4dx.inter_vehicle_communication_service.dto.CustomizingSetting">
-        SELECT * FROM CUSTOMIZING_SETTING
-    </select>
+
+    <!-- 커스터마이징 설정 추가 -->
     <insert id="insertSetting">
-        INSERT INTO CUSTOMIZING_SETTING (member_id, emoji_id, message, image_path, emoji_color)
+        INSERT INTO Customizing_Setting (MEMBER_ID, EMOJI_ID, MESSAGE, IMAGE_PATH, EMOJI_COLOR)
         VALUES (#{memberId}, #{emojiId}, #{message}, #{imagePath}, #{emojiColor})
     </insert>
+
+    <!-- 커스터마이징 설정 업데이트 -->
     <update id="updateSetting">
-        UPDATE CUSTOMIZING_SETTING
-        SET message = #{message}, image_path = #{imagePath}, emoji_color = #{emojiColor}
-        WHERE member_id = #{memberId} AND emoji_id = #{emojiId}
+        UPDATE Customizing_Setting
+        SET MESSAGE = #{message}
+        WHERE MEMBER_ID = #{memberId} AND EMOJI_ID = #{emojiId}
     </update>
+
+    <!-- 특정 회원과 이모지에 대한 설정 조회 -->
+    <select id="getSettingByMemberAndEmoji" resultType="com.lab4dx.inter_vehicle_communication_service.dto.CustomizingSetting">
+        SELECT * FROM Customizing_Setting
+        WHERE MEMBER_ID = #{memberId} AND EMOJI_ID = #{emojiId}
+    </select>
+
+    <!-- 특정 회원의 모든 설정 조회 -->
+    <select id="getSettingsByMemberId" resultType="com.lab4dx.inter_vehicle_communication_service.dto.CustomizingSetting">
+        SELECT * FROM Customizing_Setting WHERE MEMBER_ID = #{memberId}
+    </select>
 
 </mapper>

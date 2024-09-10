@@ -6,5 +6,5 @@ import lombok.ToString;
 
 @Getter@Setter@ToString
 public class Emoji {
-    private int emojiId;
+    private String emojiId;
 }
