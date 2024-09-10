@@ -9,9 +9,8 @@ import java.util.List;
 @Service
 
 public interface CustomizingSettingService {
-    CustomizingSetting getSettingsByMemberAndEmoji(String memberId, int emojiId);
+    CustomizingSetting getSettingsByMemberAndEmoji(String memberId, String emojiId);  // int -> String
     List<CustomizingSetting> getAllSettings();
     void createSettings(CustomizingSetting customizingSetting);
     void updateSettings(CustomizingSetting customizingSetting);
-
 }

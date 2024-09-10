@@ -19,9 +19,10 @@ public class CustomizingSettingServiceImp implements CustomizingSettingService {
     }
 
     @Override
-    public CustomizingSetting getSettingsByMemberAndEmoji(String memberId, int emojiId) {
+    public CustomizingSetting getSettingsByMemberAndEmoji(String memberId, String emojiId) {
         return customizingSettingMapper.getSettingByMemberAndEmoji(memberId, emojiId);
     }
+
 
     @Override
     public List<CustomizingSetting> getAllSettings() {
