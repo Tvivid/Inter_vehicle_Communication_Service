@@ -4,11 +4,14 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter@Setter@ToString
+@Getter
+@Setter
+@ToString
 public class Member {
-    private String member_id;
+    private String memberId; 
     private String password;
     private String username;
-    private String phone_number;
+    private String phoneNumber;
+
 }
 

@@ -8,6 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface EmojiMapper {
+
     Emoji getEmojiById(int emojiId);
     List<Emoji> getAllEmoji();
     void insertEmoji(Emoji emoji);

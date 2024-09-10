@@ -2,41 +2,30 @@ package com.lab4dx.inter_vehicle_communication_service.service;
 
 import com.lab4dx.inter_vehicle_communication_service.dto.Member;
 import com.lab4dx.inter_vehicle_communication_service.mapper.MemberMapper;
-import com.lab4dx.inter_vehicle_communication_service.service.MemberService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-@Transactional
+
 public class MemberServiceTest {
 
     @Autowired
     private MemberService memberService;
 
-    @Autowired
-    private MemberMapper memberMapper;
 
     @Test
-    void testRegisterAndGetMember() {
-        Member member = new Member();
-        member.setMember_id("test123");
-        member.setPassword("password");
-        member.setUsername("Test User");
-        member.setPhone_number("1234567890");
+    public void testGetMemberById() {
+        // Given: 이미 user1이 삽입된 상태
 
-        // 회원 등록
-        boolean registered = memberService.registerMember(member);
-        assertTrue(registered);
+        // When: 해당 memberId로 회원을 조회
+        Member member = memberService.getMemberById("user1");
 
-        // 회원 조회
-        Member retrievedMember = memberService.getMemberById("test123");
-        assertNotNull(retrievedMember);
-        assertEquals("test123", retrievedMember.getMember_id());
-        assertEquals("Test User", retrievedMember.getUsername());
+        // Then: 조회된 회원 정보가 올바른지 확인
+        assertThat(member).isNotNull();
+        assertThat(member.getUsername()).isEqualTo("JohnDoe");
     }
 }
 

@@ -8,12 +8,11 @@ import java.util.List;
 
 @Mapper
 public interface MemberMapper {
-    Member getMemberByIdAndPassword(String memberId, String password);
-    Member findById(String memberId);
-    List<Member> getAllMember();
+
     void insertMember(Member member);
     void updateMember(Member member);
-    void deleteMember(int memberId);
+    Member selectMemberById(String memberId);
+    List<Member> getAllMembers();
 }
 
 

@@ -5,20 +5,30 @@ import com.lab4dx.inter_vehicle_communication_service.mapper.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+import java.util.List;
+
+
 @Service
 public class MemberService {
 
     @Autowired
     private MemberMapper memberMapper;
 
-    // 회원 ID로 회원 정보 조회
-    public Member getMemberById(String memberId) {
-        return memberMapper.findById(memberId);
+
+    public void addMember(Member member) {
+        memberMapper.insertMember(member);
     }
 
-    // 새로운 회원 등록
-    public boolean registerMember(Member member) {
-        return memberMapper.insertMember(member) > 0;
+    public void updateMember(Member member) {
+        memberMapper.updateMember(member);
+    }
+
+    public Member getMemberById(String memberId) {
+        return memberMapper.selectMemberById(memberId);
+    }
+
+    public List<Member> getAllMembers() {
+        return memberMapper.getAllMembers();
     }
 }
-
