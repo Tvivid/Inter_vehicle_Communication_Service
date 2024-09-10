@@ -36,16 +36,13 @@ CREATE TABLE c##lab4dx.Default_Text(
     setiment VARCHAR(10)
 );
 
-CREATE TABLE c##lab4dx.Default_Setting
-(
-    text_id   VARCHAR(15) NOT NULL,
-    member_id VARCHAR(15) NOT NULL,
+
+CREATE TABLE c##lab4dx.Default_Setting(
+    text_id VARCHAR(15) NOT NULL ,
+    member_id VARCHAR(15) NOT NULL ,
     PRIMARY KEY (text_id, member_id),
-    FOREIGN KEY (text_id) REFERENCES c##lab4dx.Default_Text (text_id),
-    FOREIGN KEY (member_id) REFERENCES c##lab4dx.Member (member_id)
-);
+    FOREIGN KEY (text_id) REFERENCES c##lab4dx.Default_Text(text_id),
+    FOREIGN KEY (member_id) REFERENCES c##lab4dx.Member(member_id)
+)
 
-
-INSERT INTO EMOJI (EMOJI_ID) VALUES ('emoji_01');
-INSERT INTO CUSTOMIZING_SETTING (message, image_path, emoji_color) VALUE(hello","address");
 

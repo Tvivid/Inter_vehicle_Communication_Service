@@ -1,33 +1,50 @@
 package com.lab4dx.inter_vehicle_communication_service.mapper;
 
+
+
 import com.lab4dx.inter_vehicle_communication_service.dto.Member;
-import com.lab4dx.inter_vehicle_communication_service.dto.customizing_setting;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+
+
 import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest
 class MemberMapperTest {
 
+
     @Autowired
-    MemberMapper memberMapper;
+    private MemberMapper memberMapper;
 
+    
     @Test
-    void insertMember() {
-        Member mem = new Member();
-        mem.setMember_id("qwer");
-        mem.setPassword("1234");
-        mem.setUsername("user2");
-        mem.setPhone("010-1234-1234");
+    void getMemberByIdAndPassword() {
 
-        memberMapper.insertMember(mem);
-
-
+    }
+    @Test
+    void testFindById() {
+        Member retrievedMember = memberMapper.findById("user123");
+        assertNotNull(retrievedMember);
+        assertEquals("user123", retrievedMember.getMember_id());
+        assertEquals("Test User", retrievedMember.getUsername());
     }
 
     @Test
-    void selectMemberById() {
+    void getAllMember() {
+    }
+
+    @Test
+    void insertMember() {
+        Member member = new Member();
+        member.setMember_id("user1");
+        member.setPassword("123");
+        member.setUsername("lab");
+        member.setPhone("010-1234-5678");
+
+        memberMapper.insertMember(member);
     }
 
     @Test
@@ -37,4 +54,7 @@ class MemberMapperTest {
     @Test
     void deleteMember() {
     }
+
 }
+
+

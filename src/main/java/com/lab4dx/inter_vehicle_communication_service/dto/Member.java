@@ -9,6 +9,6 @@ public class Member {
     private String member_id;
     private String password;
     private String username;
-    private String phone;
+    private String phone_number;
 }
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lab4dx.inter_vehicle_communication_service.mapper.MemberMapper">
+
+    <!-- 사용자 ID와 비밀번호로 회원 조회 -->
+    <select id="getMemberByIdAndPassword" parameterType="map" resultType="com.lab4dx.inter_vehicle_communication_service.dto.Member">
+        SELECT * FROM MEMBER
+        WHERE member_id = #{memberId} AND password = #{password}
+    </select>
+  
+    <!-- 사용자 ID로 회원 정보를 조회 -->
+    <select id="findById" parameterType="String" resultType="com.lab4dx.inter_vehicle_communication_service.dto.Member">
+        SELECT * FROM Member
+        WHERE member_id = #{memberId}
+    </select>
+
+    <!-- 모든 회원 조회 -->
+    <select id="getAllMember" resultType="com.lab4dx.inter_vehicle_communication_service.dto.Member">
+        SELECT * FROM MEMBER
+    </select>
+
+    <!-- 새로운 회원 삽입 -->
+    <insert id="insertMember" parameterType="com.lab4dx.inter_vehicle_communication_service.dto.Member">
+        INSERT INTO MEMBER (member_id, password, username, phone_number)
+        VALUES (#{member_id}, #{password}, #{username}, #{phone})
+    </insert>
+
+    <!-- 기존 회원 정보 수정 -->
+    <update id="updateMember" parameterType="com.lab4dx.inter_vehicle_communication_service.dto.Member">
+        UPDATE MEMBER
+        SET password = #{password},
+            username = #{username},
+            phone_number = #{phone}
+        WHERE member_id = #{member_id}
+    </update>
+
+    <!-- 회원 삭제 -->
+    <delete id="deleteMember" parameterType="int">
+        DELETE FROM MEMBER WHERE member_id = #{memberId}
+    </delete>
+</mapper>
+

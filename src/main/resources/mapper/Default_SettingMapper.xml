@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lab4dx.inter_vehicle_communication_service.mapper.Default_SettingMapper">
+
+    <!-- user_id로 사용자의 설정을 조회하는 쿼리 -->
+    <select id="findByMemberId" parameterType="string" resultType="com.lab4dx.inter_vehicle_communication_service.dto.Default_Setting">
+        SELECT * FROM C##LAB4DX.Default_Setting
+        WHERE member_id = #{memberId}
+    </select>
+
+    <!-- 사용자의 설정을 업데이트하는 쿼리 -->
+    <update id="updateMemberEmotionSetting">
+        UPDATE C##LAB4DX.Default_Setting
+        SET text_id = #{textId}
+        WHERE member_id = #{memberId}
+    </update>
+
+</mapper>
