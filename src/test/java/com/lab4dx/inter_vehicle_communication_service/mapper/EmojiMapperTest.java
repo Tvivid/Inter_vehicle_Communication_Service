@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -16,8 +17,9 @@ class EmojiMapperTest {
     @Test
     void insertEmoji() {
         Emoji newEmoji = new Emoji();
-        newEmoji.setEmojiId(1);  // 새로운 이모지 ID 설정
+        newEmoji.setEmojiId("emoji_01");  // 새로운 이모지 ID 설정
 
         emojiMapper.insertEmoji(newEmoji);
     }
 }
+

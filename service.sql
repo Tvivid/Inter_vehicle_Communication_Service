@@ -36,6 +36,7 @@ CREATE TABLE c##lab4dx.Default_Text(
     setiment VARCHAR(10)
 );
 
+
 CREATE TABLE c##lab4dx.Default_Setting(
     text_id VARCHAR(15) NOT NULL ,
     member_id VARCHAR(15) NOT NULL ,
@@ -43,4 +44,5 @@ CREATE TABLE c##lab4dx.Default_Setting(
     FOREIGN KEY (text_id) REFERENCES c##lab4dx.Default_Text(text_id),
     FOREIGN KEY (member_id) REFERENCES c##lab4dx.Member(member_id)
 )
+
 
