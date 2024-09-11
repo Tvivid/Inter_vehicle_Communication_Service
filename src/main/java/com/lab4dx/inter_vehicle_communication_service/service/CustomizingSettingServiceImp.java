@@ -23,11 +23,11 @@ public class CustomizingSettingServiceImp implements CustomizingSettingService {
         return customizingSettingMapper.getSettingByMemberAndEmoji(memberId, emojiId);
     }
 
-
     @Override
-    public List<CustomizingSetting> getAllSettings() {
-        return customizingSettingMapper.getAllSetting();
+    public List<CustomizingSetting> getSettingsByMember(String memberId) {
+        return customizingSettingMapper.getSettingByMember(memberId);
     }
+
 
     @Override
     public void createSettings(CustomizingSetting customizingSetting) {

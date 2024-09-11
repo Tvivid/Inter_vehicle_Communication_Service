@@ -36,7 +36,7 @@ public class Default_SettingServiceImp implements Default_SettingService {
     @Override
     public String getTextsBySentiment(String memberId, String sentiment) {
         String text = defaultSettingMapper.findByMemberIdAndSentiment(memberId, sentiment);
-        
+
         return text;
     }
 

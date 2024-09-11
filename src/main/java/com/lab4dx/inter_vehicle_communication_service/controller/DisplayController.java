@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Controller
 public class DisplayController {
 
@@ -24,9 +27,19 @@ public class DisplayController {
 
     @GetMapping("/display-info")
     public String displayInfo(Model model) {
-        String positiveMessages = default_SettingService.ge("positive");
-        String negativeMessages = defaultSettingService.getMessagesBySentiment("negative");
+        String memberId="user1";//로그인 없이 임시로
+        String positiveMessages = default_SettingService.getTextsBySentiment(memberId, "positive");
+        String negativeMessages = default_SettingService.getTextsBySentiment(memberId,"negative");
+        model.addAttribute("positiveMessages", positiveMessages);
+        model.addAttribute("negativeMessages", negativeMessages);
 
+        List<CustomizingSetting> customizingSettings = customizingSettingService.getSettingsByMember(memberId);
+
+
+        List<String> messages = customizingSettings.stream()
+                .map(CustomizingSetting::getMessage)
+                .collect(Collectors.toList());
+        model.addAttribute("customizingMessages", messages);
 
 
         return "display-info";  // 디스플레이 정보 화면 (display-info.html)

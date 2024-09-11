@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface CustomizingSettingService {
     CustomizingSetting getSettingsByMemberAndEmoji(String memberId, String emojiId);  // int -> String
-    List<CustomizingSetting> getAllSettings();
+    List<CustomizingSetting> getSettingsByMember(String memberId);
     void createSettings(CustomizingSetting customizingSetting);
     void updateSettings(CustomizingSetting customizingSetting);
 }

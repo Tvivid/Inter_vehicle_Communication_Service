@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface CustomizingSettingMapper {
     CustomizingSetting getSettingByMemberAndEmoji(String memberId, String emojiId);  // int -> String
-    List<CustomizingSetting> getAllSetting();
+    List<CustomizingSetting> getSettingByMember(String memberId);
     void insertSetting(CustomizingSetting setting);
     void updateSetting(CustomizingSetting setting);
     int updateIconSetting(String emojiId, String emojiColor, String memberId);

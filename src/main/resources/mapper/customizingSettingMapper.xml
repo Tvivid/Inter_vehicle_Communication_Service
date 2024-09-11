@@ -26,12 +26,7 @@
         WHERE MEMBER_ID = #{memberId}
     </update>
 
-    <!-- 특정 회원의 설정 조회 -->
-    <select id="getIconSettingByMemberId"
-            resultType="com.lab4dx.inter_vehicle_communication_service.dto.CustomizingSetting">
-        SELECT * FROM CUSTOMIZING_SETTING
-        WHERE MEMBER_ID = #{memberId}
-    </select>
+
 
     <!-- 특정 회원과 이모지 ID로 커스터마이징 설정 조회 -->
     <select id="getSettingByMemberAndEmoji"
@@ -41,10 +36,10 @@
           AND EMOJI_ID = #{emojiId}
     </select>
 
-    <!-- 모든 커스터마이징 설정 조회 -->
-    <select id="getAllSetting"
+
+    <select id="getSettingByMember"
             resultType="com.lab4dx.inter_vehicle_communication_service.dto.CustomizingSetting">
-        SELECT * FROM CUSTOMIZING_SETTING
+        SELECT * FROM CUSTOMIZING_SETTING WHERE MEMBER_ID = #{memberId}
     </select>
 
 </mapper>

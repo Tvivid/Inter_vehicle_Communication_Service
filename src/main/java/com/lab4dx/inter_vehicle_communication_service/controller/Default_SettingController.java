@@ -25,10 +25,7 @@ public class Default_SettingController {
     // 감정에 따라서 선택할 수 있는 텍스트를 보여줌
     @GetMapping("/selectEmotion")
     public String selectEmotion(@RequestParam String sentiment, Model model) {
-        String memberId="user1";//로그인 없이 임시로
-        String positiveMessages = default_SettingService.getTextsBySentiment(memberId, "positive");
-        String negativeMessages = default_SettingService.getTextsBySentiment(memberId,"negative");
-        model.addAttribute("texts", texts);
+
 
 
         return "selectText"; // HTML 템플릿 파일 이름
