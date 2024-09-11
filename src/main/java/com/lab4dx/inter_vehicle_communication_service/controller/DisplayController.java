@@ -46,10 +46,6 @@ public class DisplayController {
     }
 
 
-    // 3. 메시지 수정 화면으로 이동하는 요청 처리 (GET 요청)
-    @GetMapping("/edit-message")
-    public String editMessage() {
-        return "edit-message";  // 메시지 수정 화면 (edit-message.html)
-    }
+
 
 }

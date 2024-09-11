@@ -10,25 +10,13 @@ import java.util.List;
 
 
 @Service
-public class MemberService {
+public interface MemberService {
 
-    @Autowired
-    private MemberMapper memberMapper;
+    public void addMember(Member member);
 
+    public void updateMember(Member member) ;
 
-    public void addMember(Member member) {
-        memberMapper.insertMember(member);
-    }
+    public Member getMemberById(String memberId) ;
 
-    public void updateMember(Member member) {
-        memberMapper.updateMember(member);
-    }
-
-    public Member getMemberById(String memberId) {
-        return memberMapper.selectMemberById(memberId);
-    }
-
-    public List<Member> getAllMembers() {
-        return memberMapper.getAllMembers();
-    }
+    public List<Member> getAllMembers() ;
 }
