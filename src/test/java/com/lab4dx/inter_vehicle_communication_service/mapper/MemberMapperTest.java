@@ -25,10 +25,10 @@ class MemberMapperTest {
     @Test
     void insertMember() {
         Member member = new Member();
-        member.setMemberId("user1");
+        member.setMemberId("user4");
         member.setPassword("123");
         member.setUsername("lab");
-        member.setPhoneNumber("010-1234-5678");
+        member.setPhoneNumber("010-1234-5612");
 
         memberMapper.insertMember(member);
     }

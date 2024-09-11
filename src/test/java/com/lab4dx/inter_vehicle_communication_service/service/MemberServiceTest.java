@@ -27,5 +27,21 @@ public class MemberServiceTest {
         assertThat(member).isNotNull();
         assertThat(member.getUsername()).isEqualTo("JohnDoe");
     }
+
+    @Test
+    void addMember() {
+    }
+
+    @Test
+    void updateMember() {
+    }
+
+    @Test
+    void getMemberById() {
+    }
+
+    @Test
+    void getAllMembers() {
+    }
 }
 

@@ -1,25 +1,30 @@
-package com.lab4dx.inter_vehicle_communication_service.mapper;
+package com.lab4dx.inter_vehicle_communication_service.service;
 
 import com.lab4dx.inter_vehicle_communication_service.dto.Emoji;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
 import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
-class EmojiMapperTest {
+class EmojiServiceTest {
 
     @Autowired
-    private EmojiMapper emojiMapper;
+    private EmojiService emojiService;
 
     @Test
     void insertEmoji() {
-        Emoji newEmoji = new Emoji();
-        newEmoji.setEmojiId("emoji1");  // 새로운 이모지 ID 설정
+        Emoji emoji = new Emoji();
+        emoji.setEmojiId("emoji2");
+        emojiService.insertEmoji(emoji);
 
-        emojiMapper.insertEmoji(newEmoji);
+    }
+
+    @Test
+    void getEmojiById() {
+    }
+
+    @Test
+    void getAllEmojis() {
     }
 }
-

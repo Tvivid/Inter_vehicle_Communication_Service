@@ -11,6 +11,6 @@ public interface Default_TextService {
     List<Default_Text> getTextsBySentiment(String sentiment);
 
     // 사용자의 설정을 업데이트
-    boolean updateUserEmotionSetting(String memberId, String textId);
+    boolean updateMemberEmotionSetting(String memberId, String textId);
 }
 

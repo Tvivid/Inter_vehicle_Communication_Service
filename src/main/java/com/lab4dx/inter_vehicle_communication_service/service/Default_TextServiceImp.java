@@ -8,7 +8,7 @@ import com.lab4dx.inter_vehicle_communication_service.dto.Default_Text;
 import java.util.List;
 
 @Service
-public class Default_TextServiceImp {
+public class Default_TextServiceImp implements Default_TextService {
 
     @Autowired
     private Default_TextMapper defaultTextMapper;
