@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.util.List;
+
 @Mapper
 public interface Default_SettingMapper {
 
@@ -17,5 +19,7 @@ public interface Default_SettingMapper {
     // 사용자의 감정 설정을 업데이트하는 쿼리
 //    @Update("UPDATE C##LAB4DX.Default_Setting SET text_id = #{textId} WHERE member_id = #{memberId}")
     int updateMemberEmotionSetting(String textId, String memberId);
+
+    List<Default_Setting> findBySentiment(String sentiment);
 }
 
