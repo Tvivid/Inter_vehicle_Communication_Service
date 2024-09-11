@@ -33,10 +33,14 @@ public class Default_SettingServiceImp implements Default_SettingService {
         return rowsAffected > 0; // 업데이트가 성공하면 true 반환
     }
 
-    public List<Default_Text> getTextsBySentiment(String sentiment) {
-        // DAO 또는 리포지토리를 통해 감정에 맞는 메시지 리스트를 반환
-        return defaultTextMapper.findTextsBySentiment(sentiment);
+    @Override
+    public String getTextsBySentiment(String memberId, String sentiment) {
+        String text = defaultSettingMapper.findByMemberIdAndSentiment(memberId, sentiment);
+        
+        return text;
     }
+
+
 
 
 

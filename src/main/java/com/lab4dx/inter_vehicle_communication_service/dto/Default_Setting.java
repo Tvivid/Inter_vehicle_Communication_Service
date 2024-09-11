@@ -8,5 +8,6 @@ import lombok.ToString;
 @ToString
 public class Default_Setting {
     private String text_id;
+    private String sentiment;
     private String member_id;
 }

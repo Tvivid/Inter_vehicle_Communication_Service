@@ -14,6 +14,14 @@
             resultType="com.lab4dx.inter_vehicle_communication_service.dto.Default_Setting">
 
     </select>
+    <select id="findByMemberIdAndSentiment"
+            resultType="java.lang.String">
+        SELECT dt.text
+        FROM c##lab4dx.Default_Setting ds
+                 JOIN c##lab4dx.Default_Text dt ON ds.text_id = dt.text_id
+        WHERE ds.member_id = #{memberId}
+          AND ds.sentiment = #{sentiment}
+    </select>
 
     <!-- 사용자의 설정을 업데이트하는 쿼리 -->
     <update id="updateMemberEmotionSetting">

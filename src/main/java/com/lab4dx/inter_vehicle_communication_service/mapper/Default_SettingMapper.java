@@ -20,6 +20,6 @@ public interface Default_SettingMapper {
 //    @Update("UPDATE C##LAB4DX.Default_Setting SET text_id = #{textId} WHERE member_id = #{memberId}")
     int updateMemberEmotionSetting(String textId, String memberId);
 
-    List<Default_Setting> findBySentiment(String sentiment);
+    String findByMemberIdAndSentiment(String memberId, String sentiment);
 }
 

@@ -10,5 +10,5 @@ public interface Default_SettingService {
 
     boolean updateUserSetting(String memberId, String textId);
 
-    List<Default_Text> getTextsBySentiment(String sentiment);
+    String getTextsBySentiment(String memberId, String sentiment);
 }

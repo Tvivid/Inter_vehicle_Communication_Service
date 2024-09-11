@@ -31,17 +31,19 @@ CREATE TABLE c##lab4dx.Customizing_Setting(
 );
 
 CREATE TABLE c##lab4dx.Default_Text(
-    text_id VARCHAR(15) PRIMARY KEY ,
+    text_id VARCHAR(15) NOT NULL ,
+    sentiment VARCHAR(10) NOT NULL ,
     text VARCHAR(100),
-    sentiment VARCHAR(10)
+    primary key (text_id, sentiment)
 );
 
 
 CREATE TABLE c##lab4dx.Default_Setting(
     text_id VARCHAR(15) NOT NULL ,
     member_id VARCHAR(15) NOT NULL ,
-    PRIMARY KEY (text_id, member_id),
-    FOREIGN KEY (text_id) REFERENCES c##lab4dx.Default_Text(text_id),
+    sentiment VARCHAR(10) NOT NULL ,
+    PRIMARY KEY (member_id, sentiment),
+    FOREIGN KEY (text_id, sentiment) REFERENCES c##lab4dx.Default_Text(text_id, sentiment),
     FOREIGN KEY (member_id) REFERENCES c##lab4dx.Member(member_id)
 )
 

@@ -22,10 +22,12 @@ public class Default_SettingController {
     @Autowired
     private Default_SettingService default_SettingService;
 
-    // 사용자가 선택할 수 있는 감정을 보여줌
+    // 감정에 따라서 선택할 수 있는 텍스트를 보여줌
     @GetMapping("/selectEmotion")
     public String selectEmotion(@RequestParam String sentiment, Model model) {
-        List<Default_Text> texts = default_SettingService.getTextsBySentiment(sentiment);
+        String memberId="user1";//로그인 없이 임시로
+        String positiveMessages = default_SettingService.getTextsBySentiment(memberId, "positive");
+        String negativeMessages = default_SettingService.getTextsBySentiment(memberId,"negative");
         model.addAttribute("texts", texts);
 
 
@@ -34,14 +36,14 @@ public class Default_SettingController {
 
     // 사용자가 선택한 감정으로 설정을 업데이트
     @PostMapping("/updateEmotionSetting")
-    public String updateEmotionSetting(@RequestParam String memberId, @RequestParam String textId, RedirectAttributes redirectAttributes) {
-        boolean success = defaultTextService.updateMemberEmotionSetting(memberId, textId);
+    public String updateEmotionSetting(@RequestParam String memberId,@RequestParam String textId, RedirectAttributes redirectAttributes) {
+        boolean success = default_SettingService.updateUserSetting(memberId, textId);
         if (success) {
             redirectAttributes.addFlashAttribute("msg", "감정 설정이 성공적으로 변경되었습니다!");
         } else {
             redirectAttributes.addFlashAttribute("msg", "감정 설정 변경에 실패했습니다.");
         }
-        return "redirect:/"; // 성공 후 리디렉션할 URL
+        return "redirect:/display-info"; // 성공 후 리디렉션할 URL
     }
 }
 
