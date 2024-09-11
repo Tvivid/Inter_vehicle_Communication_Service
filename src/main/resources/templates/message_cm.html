@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메시지 설정</title>
+    <style>
+        /* 기본 설정 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* 배경과 레이아웃 */
+        body {
+            background-color: #0a0e2b;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 100vh;
+            padding-bottom: 20px;
+        }
+
+        /* 팝업 박스 */
+        .popup {
+            background-color: white;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* 드래그 바 (위의 작은 선) */
+        .drag-bar {
+            width: 50px;
+            height: 5px;
+            background-color: #ccc;
+            border-radius: 2.5px;
+            margin: 0 auto 20px auto;
+        }
+
+        /* 메시지 입력 필드 */
+        .message-input {
+            display: flex;
+            align-items: center;
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .message-input img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .message-input input {
+            flex-grow: 1;
+            border: none;
+            background: none;
+            font-size: 16px;
+            color: #888;
+        }
+
+        /* 아이콘 선택 섹션 */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .icon-grid img {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: #f5f5f5;
+        }
+
+        /* 색상 선택 섹션 */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .color-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            cursor: pointer;
+        }
+
+        /* 특정 색상들 */
+        .color-red {
+            background-color: #ff5a5a;
+        }
+
+        .color-yellow {
+            background-color: #ffcc00;
+        }
+
+        .color-green {
+            background-color: #69c989;
+        }
+
+        .color-blue {
+            background-color: #4a90e2;
+        }
+
+        .color-pink {
+            background-color: #ff99cc;
+        }
+
+        .color-lightgreen {
+            background-color: #b2e672;
+        }
+
+        .color-lightblue {
+            background-color: #79c7e3;
+        }
+
+        .color-purple {
+            background-color: #7d4cac;
+        }
+
+        /* 이미지 첨부 버튼 */
+        .attach-btn {
+            background-color: #1f3c60;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        /* 변경하기 버튼 */
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #1f3c60;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #172d48;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 메시지 설정 팝업 -->
+    <div class="popup">
+        <!-- 드래그 바 -->
+        <div class="drag-bar"></div>
+
+        <!-- 메시지 입력 필드 -->
+        <div class="message-input">
+            <img src="Group 16.png" alt="선택된 아이콘">
+            <input type="text" placeholder="텍스트를 입력하세요.." />
+        </div>
+
+        <!-- 아이콘 선택 섹션 -->
+        <div class="icon-grid">
+            <!-- PNG 파일로 아이콘을 대체 -->
+            <img src="Vector.png" alt="아이콘 1">
+            <img src="Vector-1.png" alt="아이콘 2">
+            <img src="Vector-2.png" alt="아이콘 3">
+            <img src="Vector-3.png" alt="아이콘 4">
+            <img src="Vector-4.png" alt="아이콘 5">
+            <img src="Vector-5.png" alt="아이콘 6">
+            <img src="Vector-6.png" alt="아이콘 7">
+            <img src="Vector-7.png" alt="아이콘 8">
+        </div>
+
+        <!-- 색상 선택 섹션 -->
+        <div class="color-grid">
+            <div class="color-circle color-red"></div>
+            <div class="color-circle color-yellow"></div>
+            <div class="color-circle color-green"></div>
+            <div class="color-circle color-blue"></div>
+            <div class="color-circle color-pink"></div>
+            <div class="color-circle color-lightgreen"></div>
+            <div class="color-circle color-lightblue"></div>
+            <div class="color-circle color-purple"></div>
+        </div>
+
+        <!-- 이미지 첨부 버튼 -->
+        <button class="attach-btn">이미지 첨부</button>
+
+        <!-- 변경하기 버튼 -->
+        <button class="submit-btn">변경하기</button>
+    </div>
+
+</body>
+
+</html>

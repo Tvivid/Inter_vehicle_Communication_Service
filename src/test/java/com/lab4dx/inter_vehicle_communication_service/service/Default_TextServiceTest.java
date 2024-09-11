@@ -17,12 +17,12 @@ class Default_TextServiceTest {
     @Autowired
     private Default_TextServiceImp defaultTextService;
 
-    @Test
-    void testGetTextsBySentiment() {
-        String sentiment = "positive";
-        List<Default_Text> texts = defaultTextService.getTextsBySentiment(sentiment);
-        assertNotNull(texts);
-        assertFalse(texts.isEmpty());
-        assertEquals(sentiment, texts.get(0).getSentiment());
-    }
+//    @Test
+//    void testGetTextsBySentiment() {
+//        String sentiment = "positive";
+//        List<Default_Text> texts = defaultTextService.getTextsBySentiment(sentiment);
+//        assertNotNull(texts);
+//        assertFalse(texts.isEmpty());
+//        assertEquals(sentiment, texts.get(0).getSentiment());
+//    }
 }

@@ -9,13 +9,13 @@
 
     <!-- 사용자 설정 업데이트 -->
     <update id="updateMemberEmotionSetting" parameterType="map">
-        UPDATE C##LAB4DX.Default_Setting SET text_id = #{textId} WHERE member_id = #{memberId}
+        UPDATE C##LAB4DX.Default_Setting SET text_id = #{text_id} WHERE member_id = #{memberId}
     </update>
 
     <!-- 새로운 Default_Text 레코드 삽입 -->
     <insert id="insertDefaultText" parameterType="com.lab4dx.inter_vehicle_communication_service.dto.Default_Text">
         INSERT INTO C##LAB4DX.Default_Text (text_id, sentiment, text)
-        VALUES (#{textId}, #{sentiment}, #{text})
+        VALUES (#{text_id}, #{sentiment}, #{text})
     </insert>
 
 </mapper>

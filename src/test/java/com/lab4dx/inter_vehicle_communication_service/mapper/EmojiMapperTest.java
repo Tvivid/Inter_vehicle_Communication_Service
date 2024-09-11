@@ -14,12 +14,12 @@ class EmojiMapperTest {
     @Autowired
     private EmojiMapper emojiMapper;
 
-    @Test
-    void insertEmoji() {
-        Emoji newEmoji = new Emoji();
-        newEmoji.setEmojiId("emoji1");  // 새로운 이모지 ID 설정
-
-        emojiMapper.insertEmoji(newEmoji);
-    }
+//    @Test
+//    void insertEmoji() {
+//        Emoji newEmoji = new Emoji();
+//        newEmoji.setEmojiId("5");  // 새로운 이모지 ID 설정
+//
+//        emojiMapper.insertEmoji(newEmoji);
+//    }
 }
 

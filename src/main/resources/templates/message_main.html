@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메시지 설정</title>
+    <style>
+        /* 기본 설정 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* 배경과 기본 레이아웃 */
+        body {
+            background-color: #1a1e40;
+            /* 어두운 배경 */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* 메인 컨테이너 */
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #0a0e2b;
+            /* 어두운 배경 */
+            border-radius: 15px;
+        }
+
+        /* 헤더 */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 22px;
+        }
+
+        .back-btn {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 18px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        /* 메시지 섹션 */
+        .message-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* 메시지 한 줄 */
+        .message-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #1a1e40;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .emoji {
+            font-size: 30px;
+            margin-right: 10px;
+        }
+
+        .message-input {
+            flex: 1;
+            background-color: #303453;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 8px;
+        }
+
+        .edit-btn,
+        .preview-btn {
+            background-color: #303453;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #3c3f58;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <button class="back-btn">←</button>
+            <h1>메시지를 설정하세요</h1>
+        </header>
+
+        <div class="message-section">
+            <!-- 메시지 1 -->
+            <div class="message-row">
+                <span class="emoji">😊</span>
+                <input type="text" th:value="${positiveMessage}" class="message-input" id="positiveMessage" readonly>
+                <button class="edit-btn">✏️</button>
+                <button class="preview-btn" data-message-type="positive">미리보기</button>
+            </div>
+
+            <!-- 메시지 2 -->
+            <div class="message-row">
+                <span class="emoji">😢</span>
+                <input type="text" th:value="${negativeMessage}" class="message-input" id="negativeMessage" readonly>
+                <button class="edit-btn">✏️</button>
+                <button class="preview-btn" data-message-type="negative">미리보기</button>
+            </div>
+
+            <hr>
+
+            <div class="message-row" th:each="message, iterStat : ${customizingMessages}">
+                <img th:src="@{/images/emojis/${emojiPaths[iterStat.index]}.png}" alt="emoji" class="emoji-image" />
+                <input type="text" th:value="${message}" class="message-input" readonly>
+                <button class="edit-btn">✏️</button>
+                <button class="preview-btn" th:attr="data-message-type='customizing', data-message-index=${iterStat.index}">미리보기</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.edit-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                let inputField = this.previousElementSibling;
+                inputField.removeAttribute('readonly');
+                inputField.focus();
+            });
+        });
+    </script>
+</body>
+
+</html>

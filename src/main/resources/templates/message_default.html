@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>감사 메시지</title>
+    <style>
+        /* 기본 설정 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* 배경과 레이아웃 */
+        body {
+            background-color: #0a0e2b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* 팝업 박스 */
+        .popup {
+            background-color: white;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        /* 헤더 */
+        .popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .popup-header h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .popup-header button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        /* 메시지 리스트 */
+        .message-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .message-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .message-item:last-child {
+            border-bottom: none;
+        }
+
+        /* 라디오 버튼 */
+        .message-item input[type="radio"] {
+            display: none;
+        }
+
+        .message-item label {
+            font-size: 16px;
+            cursor: pointer;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .message-item label::before {
+            content: "○";
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 20px;
+            color: #ccc;
+        }
+
+        /* 선택된 항목 */
+        .message-item input[type="radio"]:checked+label {
+            color: #fdbd38;
+            font-weight: bold;
+        }
+
+        .message-item input[type="radio"]:checked+label::before {
+            content: "✔️";
+            color: #fdbd38;
+        }
+
+        /* 변경하기 버튼 */
+        .popup-footer button {
+            width: 100%;
+            padding: 15px;
+            background-color: #1f3c60;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .popup-footer button:hover {
+            background-color: #172d48;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="popup">
+        <div class="popup-header">
+            <h2>감사 메시지</h2>
+            <button onclick="closePopup()">×</button>
+        </div>
+        <ul class="message-list">
+            <li class="message-item">
+                <input type="radio" id="message1" name="message" checked>
+                <label for="message1">감사합니다!</label>
+            </li>
+            <li class="message-item">
+                <input type="radio" id="message2" name="message">
+                <label for="message2">안전운전 감사합니다</label>
+            </li>
+            <li class="message-item">
+                <input type="radio" id="message3" name="message">
+                <label for="message3">배려해주셔서 감사합니다</label>
+            </li>
+            <li class="message-item">
+                <input type="radio" id="message4" name="message">
+                <label for="message4">감사합니다!</label>
+            </li>
+            <li class="message-item">
+                <input type="radio" id="message5" name="message">
+                <label for="message5">감사합니다!</label>
+            </li>
+            <li class="message-item">
+                <input type="radio" id="message6" name="message">
+                <label for="message6">감사합니다!</label>
+            </li>
+            <li class="message-item">
+                <input type="radio" id="message7" name="message">
+                <label for="message7">감사합니다!</label>
+            </li>
+        </ul>
+        <div class="popup-footer">
+            <button>변경하기</button>
+        </div>
+    </div>
+
+    <script>
+        function closePopup() {
+            // 팝업 닫기 기능 (추후 구현)
+            alert("팝업을 닫습니다.");
+        }
+    </script>
+
+</body>
+
+</html>

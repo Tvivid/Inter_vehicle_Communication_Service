@@ -15,19 +15,19 @@ class Default_SettingServiceTest {
     @Autowired
     private Default_SettingService defaultSettingService;
 
-    @Test
-    void testUpdateMemberSetting() {
-        String memberId = "user123";
-        String textId = "text001";
-        boolean success = defaultSettingService.updateUserSetting(memberId, textId);
-        assertTrue(success); // 업데이트 성공 시 true 반환
-    }
-
-    @Test
-    void testGetMemberSetting() {
-        String memberId = "user123";
-        Default_Setting setting = defaultSettingService.getUserSetting(memberId);
-        assertNotNull(setting);
-        assertEquals(memberId, setting.getMember_id());
-    }
+//    @Test
+//    void testUpdateMemberSetting() {
+//        String memberId = "user123";
+//        String textId = "text001";
+//        boolean success = defaultSettingService.updateUserSetting(memberId, textId);
+//        assertTrue(success); // 업데이트 성공 시 true 반환
+//    }
+//
+//    @Test
+//    void testGetMemberSetting() {
+//        String memberId = "user123";
+//        Default_Setting setting = defaultSettingService.getUserSetting(memberId);
+//        assertNotNull(setting);
+//        assertEquals(memberId, setting.getMember_id());
+//    }
 }

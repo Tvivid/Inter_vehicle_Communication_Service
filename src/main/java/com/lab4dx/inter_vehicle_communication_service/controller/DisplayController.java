@@ -22,16 +22,16 @@ public class DisplayController {
 
     @GetMapping("/")
     public String home() {
-        return "home";  // 홈 화면으로 이동 (home.html)
+        return "home_main";  // 홈 화면으로 이동 (home.html)
     }
 
-    @GetMapping("/display-info")
+    @GetMapping("/message_main")
     public String displayInfo(Model model) {
         String memberId="user1";//로그인 없이 임시로
-        String positiveMessages = default_SettingService.getTextsBySentiment(memberId, "positive");
-        String negativeMessages = default_SettingService.getTextsBySentiment(memberId,"negative");
-        model.addAttribute("positiveMessages", positiveMessages);
-        model.addAttribute("negativeMessages", negativeMessages);
+        String positiveMessage= default_SettingService.getTextsBySentiment(memberId, "positive");
+        String negativeMessage = default_SettingService.getTextsBySentiment(memberId,"negative");
+        model.addAttribute("positiveMessage", positiveMessage);
+        model.addAttribute("negativeMessage", negativeMessage);
 
         List<CustomizingSetting> customizingSettings = customizingSettingService.getSettingsByMember(memberId);
 
@@ -39,10 +39,16 @@ public class DisplayController {
         List<String> messages = customizingSettings.stream()
                 .map(CustomizingSetting::getMessage)
                 .collect(Collectors.toList());
+
+        List<String> emojiPaths = customizingSettings.stream()
+                .map(CustomizingSetting::getEmojiId)
+                .collect(Collectors.toList());
+
         model.addAttribute("customizingMessages", messages);
+        model.addAttribute("emojiPaths", emojiPaths);
 
 
-        return "display-info";  // 디스플레이 정보 화면 (display-info.html)
+        return "message_main";  // 디스플레이 정보 화면 (display-info.html)
     }
 
 

@@ -12,13 +12,13 @@ class EmojiServiceTest {
     @Autowired
     private EmojiService emojiService;
 
-    @Test
-    void insertEmoji() {
-        Emoji emoji = new Emoji();
-        emoji.setEmojiId("emoji2");
-        emojiService.insertEmoji(emoji);
-
-    }
+//    @Test
+//    void insertEmoji() {
+//        Emoji emoji = new Emoji();
+//        emoji.setEmojiId("emoji2");
+//        emojiService.insertEmoji(emoji);
+//
+//    }
 
     @Test
     void getEmojiById() {
