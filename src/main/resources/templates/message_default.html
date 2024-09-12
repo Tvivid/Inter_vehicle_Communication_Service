@@ -135,12 +135,12 @@
         <ul class="message-list">
             <li class="message-item" th:each="message, iterStat : ${messages}">
                 <!-- message의 text_id 값이 input으로 전송되도록 value에 설정 -->
-                <input type="radio" th:id="'message' + ${iterStat.index}" name="text_id" th:value="${message.text_id}" th:checked="${iterStat.index == 0}">
+                <input type="radio" th:id="'message' + ${iterStat.index}" name="text_id" th:value="${message.text_id}" th:checked="${iterStat.index == 0}"/>
                 <label th:for="'message' + ${iterStat.index}" th:text="${message.text}"></label>
             </li>
         </ul>
         <!-- sentiment 값을 숨겨서 폼에 추가 -->
-        <input type="hidden" name="sentiment" th:value="${sentiment}">
+        <input type="hidden" name="sentiment" th:value="${sentiment}"/>
         <div class="popup-footer">
             <!-- 폼을 제출하면 POST 요청이 발생하여 updateEmotionSetting 컨트롤러로 전송 -->
             <button type="submit">변경하기</button>
@@ -156,3 +156,4 @@
 </script>
 
 </body>
+
