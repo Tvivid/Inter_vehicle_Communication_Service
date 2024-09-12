@@ -4,8 +4,8 @@
 
     <!-- 새로운 커스터마이징 설정 추가 -->
     <insert id="insertSetting">
-        INSERT INTO CUSTOMIZING_SETTING (MEMBER_ID, EMOJI_ID, MESSAGE, IMAGE_PATH, EMOJI_COLOR)
-        VALUES (#{memberId}, #{emojiId}, #{message}, #{imagePath}, #{emojiColor})
+        INSERT INTO CUSTOMIZING_SETTING (CUSTOMIZING_ID, MEMBER_ID, EMOJI_ID, MESSAGE, IMAGE_PATH, EMOJI_COLOR)
+        VALUES (#{customizingId},#{memberId}, #{emojiId}, #{message}, #{imagePath}, #{emojiColor})
     </insert>
 
     <!-- 특정 회원의 이모지 아이콘 색상 업데이트 -->
@@ -23,7 +23,8 @@
             MESSAGE = #{message},
             IMAGE_PATH = #{imagePath},
             EMOJI_COLOR = #{emojiColor}
-        WHERE MEMBER_ID = #{memberId}
+        WHERE MEMBER_ID = #{memberId} AND
+            CUSTOMIZING_ID = #{customizingId}
     </update>
 
 
@@ -40,6 +41,13 @@
     <select id="getSettingByMember"
             resultType="com.lab4dx.inter_vehicle_communication_service.dto.CustomizingSetting">
         SELECT * FROM CUSTOMIZING_SETTING WHERE MEMBER_ID = #{memberId}
+    </select>
+
+    <select id="getSettingByIdAndMemberId"
+            resultType="com.lab4dx.inter_vehicle_communication_service.dto.CustomizingSetting">
+        SELECT * FROM CUSTOMIZING_SETTING
+        WHERE MEMBER_ID = #{memberId}
+          AND CUSTOMIZING_ID = #{customizingId}
     </select>
 
 </mapper>

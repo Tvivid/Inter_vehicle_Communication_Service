@@ -18,17 +18,20 @@ CREATE TABLE c##lab4dx.Emoji (
 
 
 
-CREATE TABLE c##lab4dx.Customizing_Setting(
-                                member_id VARCHAR(15) NOT NULL,  -- 사용자 ID (Users 테이블의 외래키)
-                                emoji_id VARCHAR(15) NOT NULL,  -- 이모지 ID (Emojis 테이블의 외래키)
-                                message VARCHAR(100),  -- 사용자 정의 메시지
-                                image_path VARCHAR(255),  -- 이미지 파일 경로
-                                emoji_color VARCHAR(7) NOT NULL,  -- 이모지 색상 (예: '#FF5733')
-                                PRIMARY KEY (member_id, emoji_id),  -- 복합 기본 키
-                                FOREIGN KEY (member_id) REFERENCES c##lab4dx.Member(member_id),  -- 사용자 외래키
-                                FOREIGN KEY (emoji_id) REFERENCES c##lab4dx.Emoji(emoji_id)
-
+CREATE TABLE c##lab4dx.Customizing_Setting (
+                                               customizing_id VARCHAR(15) NOT NULL,
+                                               member_id VARCHAR(15) NOT NULL,
+                                               emoji_id VARCHAR(15) NOT NULL,
+                                               message VARCHAR(100),
+                                               image_path VARCHAR(255),
+                                               emoji_color VARCHAR(7) NOT NULL,
+                                               PRIMARY KEY (customizing_id, member_id),
+                                               FOREIGN KEY (member_id) REFERENCES c##lab4dx.Member(member_id),
+                                               FOREIGN KEY (emoji_id) REFERENCES c##lab4dx.Emoji(emoji_id)
 );
+
+
+
 
 CREATE TABLE c##lab4dx.Default_Text(
     text_id VARCHAR(15) NOT NULL ,

@@ -14,5 +14,6 @@ public interface CustomizingSettingMapper {
     List<CustomizingSetting> getSettingByMember(String memberId);
     void insertSetting(CustomizingSetting setting);
     void updateSetting(CustomizingSetting setting);
-    int updateIconSetting(String emojiId, String emojiColor, String memberId);
+    int updateIconSetting(CustomizingSetting setting);
+    CustomizingSetting getSettingByIdAndMemberId(String customizingId, String memberId);
 }

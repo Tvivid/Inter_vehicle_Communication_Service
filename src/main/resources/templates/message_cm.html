@@ -163,50 +163,89 @@
 </head>
 
 <body>
+<!-- 메시지 설정 팝업 -->
+<div class="popup">
+    <!-- 드래그 바 -->
+    <div class="drag-bar"></div>
 
-    <!-- 메시지 설정 팝업 -->
-    <div class="popup">
-        <!-- 드래그 바 -->
-        <div class="drag-bar"></div>
-
-        <!-- 메시지 입력 필드 -->
-        <div class="message-input">
-            <img src="/images/emojis/9.png" alt="선택된 아이콘">
-            <input type="text" placeholder="텍스트를 입력하세요.." />
-        </div>
-
-        <!-- 아이콘 선택 섹션 -->
-        <div class="icon-grid">
-            <!-- PNG 파일로 아이콘을 대체 -->
-            <img src="/images/emojis/1.png" alt="아이콘 1">
-            <img src="/images/emojis/2.png" alt="아이콘 2">
-            <img src="/images/emojis/3.png" alt="아이콘 3">
-            <img src="/images/emojis/4.png" alt="아이콘 4">
-            <img src="/images/emojis/5.png" alt="아이콘 5">
-            <img src="/images/emojis/6.png" alt="아이콘 6">
-            <img src="/images/emojis/7.png" alt="아이콘 7">
-            <img src="/images/emojis/8.png" alt="아이콘 8">
-        </div>
-
-        <!-- 색상 선택 섹션 -->
-        <div class="color-grid">
-            <div class="color-circle color-red"></div>
-            <div class="color-circle color-yellow"></div>
-            <div class="color-circle color-green"></div>
-            <div class="color-circle color-blue"></div>
-            <div class="color-circle color-pink"></div>
-            <div class="color-circle color-lightgreen"></div>
-            <div class="color-circle color-lightblue"></div>
-            <div class="color-circle color-purple"></div>
-        </div>
-
-        <!-- 이미지 첨부 버튼 -->
-        <button class="attach-btn">이미지 첨부</button>
-
-        <!-- 변경하기 버튼 -->
-        <button class="submit-btn">변경하기</button>
+    <!-- 메시지 입력 필드 -->
+    <div class="message-input">
+        <img id="selected-icon" src="/images/emojis/1.png" alt="선택된 아이콘">
+        <input type="text" id="message" placeholder="텍스트를 입력하세요.." />
     </div>
 
-</body>
+    <!-- 아이콘 선택 섹션 -->
+    <div class="icon-grid">
+        <img src="/images/emojis/1.png" alt="아이콘 1" onclick="selectEmoji(1)">
+        <img src="/images/emojis/2.png" alt="아이콘 2" onclick="selectEmoji(2)">
+        <img src="/images/emojis/3.png" alt="아이콘 3" onclick="selectEmoji(3)">
+        <img src="/images/emojis/4.png" alt="아이콘 4" onclick="selectEmoji(4)">
+        <img src="/images/emojis/5.png" alt="아이콘 5" onclick="selectEmoji(5)">
+        <img src="/images/emojis/6.png" alt="아이콘 6" onclick="selectEmoji(6)">
+        <img src="/images/emojis/7.png" alt="아이콘 7" onclick="selectEmoji(7)">
+        <img src="/images/emojis/8.png" alt="아이콘 8" onclick="selectEmoji(8)">
+    </div>
 
+    <!-- 색상 선택 섹션 -->
+    <div class="color-grid">
+        <div class="color-circle color-red" onclick="selectColor('#ff5a5a')"></div>
+        <div class="color-circle color-yellow" onclick="selectColor('#ffcc00')"></div>
+        <div class="color-circle color-green" onclick="selectColor('#69c989')"></div>
+        <div class="color-circle color-blue" onclick="selectColor('#4a90e2')"></div>
+        <div class="color-circle color-pink" onclick="selectColor('#ff99cc')"></div>
+        <div class="color-circle color-lightgreen" onclick="selectColor('#b2e672')"></div>
+        <div class="color-circle color-lightblue" onclick="selectColor('#4a90e2')"></div>
+        <div class="color-circle color-purple" onclick="selectColor('#7d4cac')"></div>
+    </div>
+
+    <!-- 이미지 첨부 -->
+    <input type="file" id="file" />
+
+    <!-- 변경하기 버튼 -->
+    <button class="submit-btn" onclick="submitForm()">변경하기</button>
+</div>
+
+<script>
+    let selectedEmojiId = '1'; // 기본값 설정
+    let selectedColor = '#FF0000'; // 기본 색상 설정
+
+    // 이모지 선택 시 호출되는 함수
+    function selectEmoji(emojiId) {
+        selectedEmojiId = emojiId;
+        document.getElementById('selected-icon').src = `/images/emojis/${emojiId}.png`;
+    }
+
+    // 색상 선택 시 호출되는 함수
+    function selectColor(color) {
+        selectedColor = color;
+    }
+
+    // 폼 데이터 제출 함수
+    function submitForm() {
+        const message = document.getElementById('message').value;
+        const fileInput = document.getElementById('file');
+        const file = fileInput.files[0];
+
+        const formData = new FormData();
+        formData.append("emojiId", selectedEmojiId);
+        formData.append("message", message);
+        formData.append("emojiColor", selectedColor);
+        formData.append("image", file);
+
+        // 데이터 전송
+        fetch('/message_cm/upload', {
+            method: 'PUT',
+            body: formData
+        })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+</script>
+
+</body>
 </html>

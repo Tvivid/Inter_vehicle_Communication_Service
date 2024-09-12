@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아이패드 디스플레이</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    /* 아이패드 디자인 컨테이너 */
+    .ipad-container {
+      position: relative;
+      width: 1024px; /* 아이패드의 일반적인 해상도 */
+      height: 768px; /* 아이패드의 일반적인 해상도 */
+      background-color: black;
+      border-radius: 40px;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    /* 디스플레이 영역 */
+    .ipad-screen {
+      width: 90%;
+      height: 90%;
+      background-color: #111;
+      margin: auto;
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      border-radius: 30px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- 아이패드 화면 디자인 -->
+  <div class="ipad-container">
+    <div class="ipad-screen"></div>
+  </div>
+
+</body>
+</html>

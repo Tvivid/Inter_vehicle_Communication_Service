@@ -18,6 +18,12 @@ public class CustomizingSettingServiceImp implements CustomizingSettingService {
         this.customizingSettingMapper = customizingSettingMapper;
     }
 
+
+    @Override
+    public CustomizingSetting getSettingByIdAndMemberId(String customizingId, String memberId) {
+        return customizingSettingMapper.getSettingByIdAndMemberId(customizingId, memberId);
+    }
+
     @Override
     public CustomizingSetting getSettingsByMemberAndEmoji(String memberId, String emojiId) {
         return customizingSettingMapper.getSettingByMemberAndEmoji(memberId, emojiId);

@@ -17,10 +17,6 @@ class EmojiMapperTest {
     @Test
     void insertEmoji() {
         Emoji newEmoji = new Emoji();
-        newEmoji.setEmojiId("5");  // 새로운 이모지 ID 설정
-
-        emojiMapper.insertEmoji(newEmoji);
-
         newEmoji.setEmojiId("1");  // 새로운 이모지 ID 설정
 
         emojiMapper.insertEmoji(newEmoji);
@@ -36,6 +32,10 @@ class EmojiMapperTest {
         newEmoji.setEmojiId("5");
         emojiMapper.insertEmoji(newEmoji);
         newEmoji.setEmojiId("6");
+        emojiMapper.insertEmoji(newEmoji);
+        newEmoji.setEmojiId("7");
+        emojiMapper.insertEmoji(newEmoji);
+        newEmoji.setEmojiId("8");
 
         emojiMapper.insertEmoji(newEmoji);
     }

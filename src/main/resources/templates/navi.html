@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>네비게이션 UI</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .navigation-container {
+      display: flex;
+      width: 663px; /* 이미지에 맞춘 너비 */
+      height: 463px; /* 이미지에 맞춘 높이 */
+      border: 1px solid #ccc; /* 화면을 보기 좋게 구분하기 위한 테두리 */
+    }
+
+     /* 사이드바 스타일 */
+    .sidebar {
+      width: 40px;
+      height: 466px; 
+      background-color: #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      left: 0;
+      top: 0;
+    }
+
+    .icon {
+      font-size: 24px; /* 이미지에 맞춘 이모티콘 크기 */
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    /* 메인 콘텐츠 스타일 */
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 상단 정보 스타일 */
+    .top-info {
+      background-color: rgba(255, 255, 255, 0.7);
+      display: flex;
+      justify-content: space-between;
+      padding: 5px;
+      position: relative;
+    }
+
+    .time {
+      font-size: 18px;
+    }
+
+    .turn-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .remaining-distance {
+      font-size: 18px;
+    }
+
+    /* 지도 섹션 스타일 */
+    .map {
+      flex: 1;
+      position: relative;
+      background-color: #ddd;
+    }
+
+    .map img {
+      width: 100%;
+      height: auto;
+    }
+
+    .distance-box {
+      position: absolute;
+      top: 40%;
+      right: 20px;
+      background-color: white;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="navigation-container">
+    <!-- 왼쪽 사이드바 아이콘들 -->
+    <div class="sidebar">
+      <div class="icon">😊</div>
+      <div class="icon">😢</div>
+      <div class="icon">❤️</div>
+      <div class="icon">⭐</div>
+      <div class="icon">☀️</div>
+    </div>
+
+    <!-- 메인 지도 섹션 -->
+    <div class="main-content">
+
+      <!-- 지도 섹션 -->
+      <div class="map">
+        <img src="map_image.png" alt="지도 이미지">
+        <div class="distance-box">
+          시간 비슷<br>0.5km 감소
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

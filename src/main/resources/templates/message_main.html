@@ -160,8 +160,9 @@
             <div class="message-row" th:each="message, iterStat : ${customizingMessages}">
                 <img th:src="@{${emojiPaths[iterStat.index]}}" alt="emoji" class="emoji-image" />
                 <input type="text" th:value="${message}" class="message-input" readonly>
-                <button class="edit-btn">✏️</button>
-                <button class="preview-btn" th:attr="data-message-type='customizing', data-message-index=${iterStat.index}">미리보기</button>
+                <!-- customizingId를 data-customizing-id 속성으로 전달 -->
+                <button class="edit-btn" th:attr="data-customizing-id=${customizingIds[iterStat.index]}">✏️</button>
+                <button class="preview-btn" th:attr="data-message-type='customizing', data-customizing-id=${customizingIds[iterStat.index]}">미리보기</button>
             </div>
         </div>
     </div>
@@ -169,8 +170,9 @@
     <script>
         document.querySelectorAll('.edit-btn').forEach(function(button) {
             button.addEventListener('click', function() {
-                // 매개변수로 'positive' 값을 전달하며 컨트롤러로 이동
-                window.location.href = '/message_cm';
+                // customizingId를 가져와서 URL에 포함
+                var customizingId = this.getAttribute('data-customizing-id');
+                window.location.href = '/message_cm?customizingId=' + customizingId;
             });
         });
 
