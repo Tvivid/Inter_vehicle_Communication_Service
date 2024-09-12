@@ -28,8 +28,8 @@ public class Default_SettingServiceImp implements Default_SettingService {
 
     // 사용자의 설정을 업데이트
     @Override
-    public boolean updateUserSetting(String memberId, String textId) {
-        int rowsAffected = defaultSettingMapper.updateMemberEmotionSetting(textId, memberId);
+    public boolean updateUserSetting(Default_Setting defaultSetting) {
+        int rowsAffected = defaultSettingMapper.updateMemberEmotionSetting(defaultSetting);
         return rowsAffected > 0; // 업데이트가 성공하면 true 반환
     }
 

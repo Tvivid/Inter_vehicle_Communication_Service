@@ -121,7 +121,7 @@
             <div class="message-row">
                 <span class="emoji">😊</span>
                 <input type="text" th:value="${positiveMessage}" class="message-input" id="positiveMessage" readonly>
-                <button class="edit-btn">✏️</button>
+                <button class="positive-edit-btn">✏️</button>>
                 <button class="preview-btn" data-message-type="positive">미리보기</button>
             </div>
 
@@ -152,6 +152,15 @@
                 inputField.focus();
             });
         });
+
+        document.querySelectorAll('.positive-edit-btn').forEach(function(button) {
+            button.addEventListener('click', function() {
+                // 매개변수로 'positive' 값을 전달하며 컨트롤러로 이동
+                window.location.href = '/message_default?sentiment=positive';
+            });
+        });
+
+
     </script>
 </body>
 

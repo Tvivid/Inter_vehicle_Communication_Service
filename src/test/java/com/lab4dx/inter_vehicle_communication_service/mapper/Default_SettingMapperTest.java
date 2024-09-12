@@ -38,6 +38,20 @@ class Default_SettingMapperTest {
     void findByMemberIdAndSentiment() {
     }
 
+    @Test
+    void FindByMemberIdAndSentiment() {
+
+        String memberId = "user1";  // 테스트할 멤버 ID
+        String sentiment = "positive";  // 테스트할 감정 유형
+
+        // When
+        String resultText = defaultSettingMapper.findByMemberIdAndSentiment(memberId, sentiment);
+
+        System.out.println(resultText);
+
+
+    }
+
 //    @Autowired
 //    private Default_SettingMapper defaultSettingMapper;
 //

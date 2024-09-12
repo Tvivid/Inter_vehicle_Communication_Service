@@ -125,53 +125,34 @@
 
 <body>
 
-    <div class="popup">
-        <div class="popup-header">
-            <h2>감사 메시지</h2>
-            <button onclick="closePopup()">×</button>
-        </div>
+<div class="popup">
+    <div class="popup-header">
+        <h2>감사 메시지</h2>
+        <button onclick="closePopup()">×</button>
+    </div>
+    <!-- 폼 추가 -->
+    <form action="/message_default/updateEmotionSetting" method="post">
         <ul class="message-list">
-            <li class="message-item">
-                <input type="radio" id="message1" name="message" checked>
-                <label for="message1">감사합니다!</label>
-            </li>
-            <li class="message-item">
-                <input type="radio" id="message2" name="message">
-                <label for="message2">안전운전 감사합니다</label>
-            </li>
-            <li class="message-item">
-                <input type="radio" id="message3" name="message">
-                <label for="message3">배려해주셔서 감사합니다</label>
-            </li>
-            <li class="message-item">
-                <input type="radio" id="message4" name="message">
-                <label for="message4">감사합니다!</label>
-            </li>
-            <li class="message-item">
-                <input type="radio" id="message5" name="message">
-                <label for="message5">감사합니다!</label>
-            </li>
-            <li class="message-item">
-                <input type="radio" id="message6" name="message">
-                <label for="message6">감사합니다!</label>
-            </li>
-            <li class="message-item">
-                <input type="radio" id="message7" name="message">
-                <label for="message7">감사합니다!</label>
+            <li class="message-item" th:each="message, iterStat : ${messages}">
+                <!-- message의 text_id 값이 input으로 전송되도록 value에 설정 -->
+                <input type="radio" th:id="'message' + ${iterStat.index}" name="text_id" th:value="${message.text_id}" th:checked="${iterStat.index == 0}">
+                <label th:for="'message' + ${iterStat.index}" th:text="${message.text}"></label>
             </li>
         </ul>
+        <!-- sentiment 값을 숨겨서 폼에 추가 -->
+        <input type="hidden" name="sentiment" th:value="${sentiment}">
         <div class="popup-footer">
-            <button>변경하기</button>
+            <!-- 폼을 제출하면 POST 요청이 발생하여 updateEmotionSetting 컨트롤러로 전송 -->
+            <button type="submit">변경하기</button>
         </div>
-    </div>
+    </form>
+</div>
 
-    <script>
-        function closePopup() {
-            // 팝업 닫기 기능 (추후 구현)
-            alert("팝업을 닫습니다.");
-        }
-    </script>
+<script>
+    function closePopup() {
+        // 팝업 닫기 기능
+        alert("팝업을 닫습니다.");
+    }
+</script>
 
 </body>
-
-</html>

@@ -19,7 +19,7 @@ public interface Default_SettingMapper {
 
     // 사용자의 감정 설정을 업데이트하는 쿼리
 //    @Update("UPDATE C##LAB4DX.Default_Setting SET text_id = #{textId} WHERE member_id = #{memberId}")
-    int updateMemberEmotionSetting(String textId, String memberId);
+    int updateMemberEmotionSetting(Default_Setting default_setting);
 
     String findByMemberIdAndSentiment(String memberId, String sentiment);
 }

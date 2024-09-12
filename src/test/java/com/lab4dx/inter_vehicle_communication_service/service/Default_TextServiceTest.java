@@ -17,6 +17,21 @@ class Default_TextServiceTest {
     @Autowired
     private Default_TextServiceImp defaultTextService;
 
+    @Test
+    void getTextsBySentiment() {
+        String sentiment = "positive"; // 테스트할 감정 유형
+
+        // When
+        List<Default_Text> texts = defaultTextService.getTextsBySentiment(sentiment);
+
+        System.out.println("Texts retrieved for sentiment: " + sentiment);
+        for (Default_Text text : texts) {
+            System.out.println(text);
+        }
+
+
+    }
+
 //    @Test
 //    void testGetTextsBySentiment() {
 //        String sentiment = "positive";
