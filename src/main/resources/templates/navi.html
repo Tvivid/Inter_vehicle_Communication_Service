@@ -20,6 +20,17 @@
       background-color: #f0f0f0;
     }
 
+    /* 아이패드 테두리 컨테이너 */
+    .ipad-container {
+      position: relative;
+      width: 1024px; /* 아이패드의 일반적인 해상도 */
+      height: 768px; /* 아이패드의 일반적인 해상도 */
+      background-color: black;
+      border-radius: 40px;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+      padding: 20px;
+    }
+
     .navigation-container {
       display: flex;
       width: 663px; /* 이미지에 맞춘 너비 */
@@ -46,6 +57,12 @@
       text-align: center;
       margin-bottom: 15px;
     }
+    /* 이모티콘 호버링 효과 */
+    .icon:hover {
+      transform: scale(1.2); /* 크기 1.2배 확대 */
+      color: #ffcc00; /* 호버 시 색상 변경 (예: 노란색) */
+    }
+
 
     /* 메인 콘텐츠 스타일 */
     .main-content {
