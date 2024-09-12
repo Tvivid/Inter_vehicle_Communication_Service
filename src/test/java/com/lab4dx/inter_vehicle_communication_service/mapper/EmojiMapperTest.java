@@ -36,7 +36,22 @@ class EmojiMapperTest {
         newEmoji.setEmojiId("7");
         emojiMapper.insertEmoji(newEmoji);
         newEmoji.setEmojiId("8");
-
+        emojiMapper.insertEmoji(newEmoji);
+        newEmoji.setEmojiId("9");
+        emojiMapper.insertEmoji(newEmoji);
+        newEmoji.setEmojiId("10");
+        emojiMapper.insertEmoji(newEmoji);
+        newEmoji.setEmojiId("11");
+        emojiMapper.insertEmoji(newEmoji);
+        newEmoji.setEmojiId("12");
+        emojiMapper.insertEmoji(newEmoji);
+        newEmoji.setEmojiId("13");
+        emojiMapper.insertEmoji(newEmoji);
+        newEmoji.setEmojiId("14");
+        emojiMapper.insertEmoji(newEmoji);
+        newEmoji.setEmojiId("15");
+        emojiMapper.insertEmoji(newEmoji);
+        newEmoji.setEmojiId("16");
         emojiMapper.insertEmoji(newEmoji);
     }
 }

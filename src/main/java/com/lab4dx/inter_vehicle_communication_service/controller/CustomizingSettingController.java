@@ -42,10 +42,9 @@ public class CustomizingSettingController {
     public String uploadImage(@RequestParam("customizingId") String customizingId,
                               @RequestParam("emojiId") String emojiId,
                               @RequestParam("message") String message,
-                              @RequestParam("emojiColor") String emojiColor,
                               @RequestParam("image") MultipartFile file) throws IOException {
         String memberId = "user1";
-        System.out.println("!!!!!!!!!!!!!!!!!!"+customizingId+"!!!!!!!!!!!!!!!!!!!!!");
+
 
         // 기존 설정을 가져옴
         CustomizingSetting setting = customizingSettingService.getSettingByIdAndMemberId(customizingId, memberId);
@@ -65,7 +64,7 @@ public class CustomizingSettingController {
         // 설정 정보 업데이트
         setting.setEmojiId(emojiId);
         setting.setMessage(message);
-        setting.setEmojiColor(emojiColor);
+
 
         // DB에 업데이트
         customizingSettingService.updateSettings(setting);

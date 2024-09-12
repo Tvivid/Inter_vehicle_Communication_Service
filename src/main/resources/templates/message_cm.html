@@ -184,19 +184,27 @@
         <img src="/images/emojis/6.png" alt="아이콘 6" onclick="selectEmoji(6)">
         <img src="/images/emojis/7.png" alt="아이콘 7" onclick="selectEmoji(7)">
         <img src="/images/emojis/8.png" alt="아이콘 8" onclick="selectEmoji(8)">
+        <img src="/images/emojis/9.png" alt="아이콘 9" onclick="selectEmoji(9)">
+        <img src="/images/emojis/10.png" alt="아이콘 10" onclick="selectEmoji(10)">
+        <img src="/images/emojis/11.png" alt="아이콘 11" onclick="selectEmoji(11)">
+        <img src="/images/emojis/12.png" alt="아이콘 12" onclick="selectEmoji(12)">
+        <img src="/images/emojis/13.png" alt="아이콘 13" onclick="selectEmoji(13)">
+        <img src="/images/emojis/14.png" alt="아이콘 14" onclick="selectEmoji(14)">
+        <img src="/images/emojis/15.png" alt="아이콘 15" onclick="selectEmoji(15)">
+        <img src="/images/emojis/16.png" alt="아이콘 16" onclick="selectEmoji(16)">
     </div>
 
-    <!-- 색상 선택 섹션 -->
-    <div class="color-grid">
-        <div class="color-circle color-red" onclick="selectColor('#ff5a5a')"></div>
-        <div class="color-circle color-yellow" onclick="selectColor('#ffcc00')"></div>
-        <div class="color-circle color-green" onclick="selectColor('#69c989')"></div>
-        <div class="color-circle color-blue" onclick="selectColor('#4a90e2')"></div>
-        <div class="color-circle color-pink" onclick="selectColor('#ff99cc')"></div>
-        <div class="color-circle color-lightgreen" onclick="selectColor('#b2e672')"></div>
-        <div class="color-circle color-lightblue" onclick="selectColor('#4a90e2')"></div>
-        <div class="color-circle color-purple" onclick="selectColor('#7d4cac')"></div>
-    </div>
+<!--    &lt;!&ndash; 색상 선택 섹션 &ndash;&gt;-->
+<!--    <div class="color-grid">-->
+<!--        <div class="color-circle color-red" onclick="selectColor('#ff5a5a')"></div>-->
+<!--        <div class="color-circle color-yellow" onclick="selectColor('#ffcc00')"></div>-->
+<!--        <div class="color-circle color-green" onclick="selectColor('#69c989')"></div>-->
+<!--        <div class="color-circle color-blue" onclick="selectColor('#4a90e2')"></div>-->
+<!--        <div class="color-circle color-pink" onclick="selectColor('#ff99cc')"></div>-->
+<!--        <div class="color-circle color-lightgreen" onclick="selectColor('#b2e672')"></div>-->
+<!--        <div class="color-circle color-lightblue" onclick="selectColor('#4a90e2')"></div>-->
+<!--        <div class="color-circle color-purple" onclick="selectColor('#7d4cac')"></div>-->
+<!--    </div>-->
 
     <!-- 이미지 첨부 -->
     <input type="file" id="file" />
@@ -212,7 +220,7 @@
     let customizingId = '[[${customizingSetting.customizingId}]]';  // customizingId 값을 가져옵니다
     console.log("customizingId:", customizingId);  // 콘솔에 출력하여 값 확인
     let selectedEmojiId = '[[${customizingSetting.emojiId}]]'; // 기본값 설정
-    let selectedColor = '[[${customizingSetting.emojiColor}]]'; // 기본 색상 설정
+
 
 
     // 이모지 선택 시 호출되는 함수
@@ -236,7 +244,7 @@
         formData.append("customizingId", customizingId);
         formData.append("emojiId", selectedEmojiId);
         formData.append("message", message);
-        formData.append("emojiColor", selectedColor);
+
 
         // 파일이 선택되었을 경우에만 formData에 파일 추가
         if (file) {

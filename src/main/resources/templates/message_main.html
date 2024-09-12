@@ -102,7 +102,7 @@
         }
 
         .positive-edit-btn,
-        .preview-btn {
+        .positive-preview-btn {
             background-color: #303453;
             color: white;
             border: none;
@@ -113,7 +113,7 @@
         }
 
         .negative-edit-btn,
-        .preview-btn {
+        .negative-preview-btn {
             background-color: #303453;
             color: white;
             border: none;
@@ -187,8 +187,8 @@
                 var messageType = this.getAttribute('data-message-type');
                 var message = '';
 
-                if (messageType === 'positive') {
-                    message = document.getElementById('positiveMessage').value;
+                if (messageType === 'negative') {
+                    message = document.getElementById('negativeMessage').value;
                 }
 
                 // 메시지를 URL에 전달하여 컨트롤러로 요청

@@ -21,8 +21,7 @@
         UPDATE CUSTOMIZING_SETTING
         SET EMOJI_ID = #{emojiId},
             MESSAGE = #{message},
-            IMAGE_PATH = #{imagePath},
-            EMOJI_COLOR = #{emojiColor}
+            IMAGE_PATH = #{imagePath}
         WHERE MEMBER_ID = #{memberId} AND
             CUSTOMIZING_ID = #{customizingId}
     </update>
