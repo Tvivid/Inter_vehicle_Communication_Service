@@ -35,15 +35,18 @@ public class DisplayController {
 
         List<CustomizingSetting> customizingSettings = customizingSettingService.getSettingsByMember(memberId);
 
+        System.out.println(customizingSettings);
 
         List<String> messages = customizingSettings.stream()
                 .map(CustomizingSetting::getMessage)
                 .collect(Collectors.toList());
 
+        System.out.println(messages);
 
         List<String> emojiPaths = customizingSettings.stream()
                 .map(setting -> "/images/emojis/" + setting.getEmojiId() + ".png")  // static 폴더 내에 이미지가 /images/emojis/ 경로에 있다고 가정
                 .collect(Collectors.toList());
+
 
         model.addAttribute("customizingMessages", messages);
         model.addAttribute("emojiPaths", emojiPaths);
