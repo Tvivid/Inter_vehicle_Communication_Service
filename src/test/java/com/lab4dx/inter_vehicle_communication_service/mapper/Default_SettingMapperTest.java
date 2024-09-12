@@ -22,7 +22,13 @@ class Default_SettingMapperTest {
     @Test
     void insertDefault_Setting() {
         Default_Setting defaultSetting = new Default_Setting();
-        defaultSetting.setText_id("text2");
+        defaultSetting.setText_id("text1");
+        defaultSetting.setSentiment("positive");
+        defaultSetting.setMember_id("user1");
+
+        defaultSettingMapper.insertDefault_Setting(defaultSetting);
+
+        defaultSetting.setText_id("text4");
         defaultSetting.setSentiment("negative");
         defaultSetting.setMember_id("user1");
 

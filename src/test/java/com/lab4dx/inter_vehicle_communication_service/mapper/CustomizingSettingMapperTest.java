@@ -26,7 +26,7 @@ class CustomizingSettingMapperTest {
     void insertSetting() {
         CustomizingSetting customizingSetting = new CustomizingSetting();
         customizingSetting.setMemberId("user1");  // 새로운 멤버 ID
-        customizingSetting.setEmojiId("2");   // 새로운 이모지 ID
+        customizingSetting.setEmojiId("1");   // 새로운 이모지 ID
         customizingSetting.setMessage("한국 축구 화이팅");
         customizingSetting.setImagePath("/images/emoji2.png");
         customizingSetting.setEmojiColor("#00FF00");
