@@ -196,6 +196,16 @@
             });
         });
 
+        document.querySelectorAll('.preview-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const customizingId = this.getAttribute('data-customizing-id');
+
+                // 서버로 customizingId와 message를 보내기 위한 요청
+                const url = `/display-image?customizingId=${customizingId}`;
+                window.location.href = url; // 페이지 리다이렉션
+            });
+        });
+
         document.querySelectorAll('.edit-btn').forEach(function(button) {
             button.addEventListener('click', function() {
                 // customizingId를 가져와서 URL에 포함
