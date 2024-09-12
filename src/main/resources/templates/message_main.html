@@ -136,7 +136,7 @@
             <hr>
 
             <div class="message-row" th:each="message, iterStat : ${customizingMessages}">
-                <img th:src="@{/images/emojis/${emojiPaths[iterStat.index]}.png}" alt="emoji" class="emoji-image" />
+                <img th:src="@{${emojiPaths[iterStat.index]}}" alt="emoji" class="emoji-image" />
                 <input type="text" th:value="${message}" class="message-input" readonly>
                 <button class="edit-btn">✏️</button>
                 <button class="preview-btn" th:attr="data-message-type='customizing', data-message-index=${iterStat.index}">미리보기</button>

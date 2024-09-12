@@ -40,8 +40,9 @@ public class DisplayController {
                 .map(CustomizingSetting::getMessage)
                 .collect(Collectors.toList());
 
+
         List<String> emojiPaths = customizingSettings.stream()
-                .map(CustomizingSetting::getEmojiId)
+                .map(setting -> "/images/emojis/" + setting.getEmojiId() + ".png")  // static 폴더 내에 이미지가 /images/emojis/ 경로에 있다고 가정
                 .collect(Collectors.toList());
 
         model.addAttribute("customizingMessages", messages);
