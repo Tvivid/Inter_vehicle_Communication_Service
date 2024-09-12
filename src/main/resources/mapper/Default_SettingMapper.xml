@@ -6,7 +6,7 @@
 <mapper namespace="com.lab4dx.inter_vehicle_communication_service.mapper.Default_SettingMapper">
     <insert id="insertDefault_Setting" parameterType="com.lab4dx.inter_vehicle_communication_service.dto.Default_Setting">
         INSERT INTO C##LAB4DX.DEFAULT_SETTING (TEXT_ID, SENTIMENT, MEMBER_ID)
-        VALUES (#{text_id}, #{sentiment}, #{member_id})
+        VALUES (#{textId}, #{sentiment}, #{memberId})
     </insert>
 
     <!-- user_id로 사용자의 설정을 조회하는 쿼리 -->

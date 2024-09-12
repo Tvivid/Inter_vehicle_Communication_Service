@@ -135,7 +135,7 @@
         <ul class="message-list">
             <li class="message-item" th:each="message, iterStat : ${messages}">
                 <!-- message의 text_id 값이 input으로 전송되도록 value에 설정 -->
-                <input type="radio" th:id="'message' + ${iterStat.index}" name="text_id" th:value="${message.text_id}" th:checked="${iterStat.index == 0}"/>
+                <input type="radio" th:id="'message' + ${iterStat.index}" name="textId" th:value="${message.textId}" th:checked="${iterStat.index == 0}"/>
                 <label th:for="'message' + ${iterStat.index}" th:text="${message.text}"></label>
             </li>
         </ul>

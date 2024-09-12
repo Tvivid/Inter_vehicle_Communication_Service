@@ -27,23 +27,23 @@ class Default_TextMapperTest {
     @Test
     void insertDefaultText() {
         Default_Text default_text = new Default_Text();
-        default_text.setText_id("text3");
+        default_text.setTextId("text3");
         default_text.setSentiment("positive");
         default_text.setText("안전운전하세요~");
         defaultTextMapper.insertDefaultText(default_text);
 
-        default_text.setText_id("text1");
+        default_text.setTextId("text1");
         default_text.setSentiment("positive");
         default_text.setText("Thank you you");
         defaultTextMapper.insertDefaultText(default_text);
 
-        default_text.setText_id("text2");
+        default_text.setTextId("text2");
         default_text.setSentiment("positive");
         default_text.setText("감사합니다");
         defaultTextMapper.insertDefaultText(default_text);
 
 
-        default_text.setText_id("text4");
+        default_text.setTextId("text4");
         default_text.setSentiment("negative");
         default_text.setText("Stop!!!");
         defaultTextMapper.insertDefaultText(default_text);

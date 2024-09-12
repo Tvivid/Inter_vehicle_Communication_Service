@@ -22,7 +22,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @Controller
-@RequestMapping("/customizing")
+@RequestMapping("/message_cm")
 public class CustomizingSettingController {
 
 
@@ -36,10 +36,10 @@ public class CustomizingSettingController {
     @Autowired
     private CustomizingSettingService customizingSettingService;
 
-    @GetMapping("/")
+    @GetMapping
     public String customizingSetting(Model model) {
 
-        return "customizingSetting";  // 메시지 수정 화면 (edit-message.html)
+        return "message_cm";  // 메시지 수정 화면 (edit-message.html)
     }
 
     @PostMapping("/upload")

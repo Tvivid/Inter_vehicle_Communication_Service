@@ -7,7 +7,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Default_Setting {
-    private String text_id;
+    private String textId;
     private String sentiment;
-    private String member_id;
+    private String memberId;
 }

@@ -101,6 +101,28 @@
             margin-left: 10px;
         }
 
+        .positive-edit-btn,
+        .preview-btn {
+            background-color: #303453;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .negative-edit-btn,
+        .preview-btn {
+            background-color: #303453;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
         hr {
             border: none;
             border-top: 1px solid #3c3f58;
@@ -112,7 +134,7 @@
 <body>
     <div class="container">
         <header>
-            <button class="back-btn">←</button>
+            <button class="back-btn" onclick="goToHome()">←</button>
             <h1>메시지를 설정하세요</h1>
         </header>
 
@@ -121,7 +143,7 @@
             <div class="message-row">
                 <span class="emoji">😊</span>
                 <input type="text" th:value="${positiveMessage}" class="message-input" id="positiveMessage" readonly>
-                <button class="positive-edit-btn">✏️</button>>
+                <button class="positive-edit-btn">✏️</button>
                 <button class="preview-btn" data-message-type="positive">미리보기</button>
             </div>
 
@@ -129,7 +151,7 @@
             <div class="message-row">
                 <span class="emoji">😢</span>
                 <input type="text" th:value="${negativeMessage}" class="message-input" id="negativeMessage" readonly>
-                <button class="edit-btn">✏️</button>
+                <button class="negative-edit-btn">✏️</button>
                 <button class="preview-btn" data-message-type="negative">미리보기</button>
             </div>
 
@@ -145,11 +167,10 @@
     </div>
 
     <script>
-        document.querySelectorAll('.edit-btn').forEach(button => {
-            button.addEventListener('click', function () {
-                let inputField = this.previousElementSibling;
-                inputField.removeAttribute('readonly');
-                inputField.focus();
+        document.querySelectorAll('.edit-btn').forEach(function(button) {
+            button.addEventListener('click', function() {
+                // 매개변수로 'positive' 값을 전달하며 컨트롤러로 이동
+                window.location.href = '/message_cm';
             });
         });
 
@@ -159,6 +180,18 @@
                 window.location.href = '/message_default?sentiment=positive';
             });
         });
+
+        document.querySelectorAll('.negative-edit-btn').forEach(function(button) {
+            button.addEventListener('click', function() {
+                // 매개변수로 'positive' 값을 전달하며 컨트롤러로 이동
+                window.location.href = '/message_default?sentiment=negative';
+            });
+        });
+
+        function goToHome() {
+            // home_main.html로 이동
+            window.location.href = '/';
+        }
 
 
     </script>

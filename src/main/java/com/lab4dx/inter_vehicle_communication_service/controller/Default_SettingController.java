@@ -44,7 +44,9 @@ public class Default_SettingController {
     // 사용자가 선택한 감정으로 설정을 업데이트
     @PostMapping("/updateEmotionSetting")
     public String updateEmotionSetting(Default_Setting defaultSetting, RedirectAttributes redirectAttributes) {
-        defaultSetting.setMember_id("user1");
+        defaultSetting.setMemberId("user1");
+        System.out.println(defaultSetting);
+
         boolean success = default_SettingService.updateUserSetting(defaultSetting);
         if (success) {
             redirectAttributes.addFlashAttribute("msg", "감정 설정이 성공적으로 변경되었습니다!");
