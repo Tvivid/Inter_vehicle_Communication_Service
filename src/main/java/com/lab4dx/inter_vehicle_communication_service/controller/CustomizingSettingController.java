@@ -27,6 +27,7 @@ public class CustomizingSettingController {
     @GetMapping
     public String customizingSetting(@RequestParam("customizingId") String customizingId, Model model) {
         String memberId="user1";
+
         CustomizingSetting setting = customizingSettingService.getSettingByIdAndMemberId(customizingId, memberId);
 
         if (setting != null) {
@@ -37,29 +38,34 @@ public class CustomizingSettingController {
     }
 
     // 수정사항을 DB에 반영
-    @PutMapping("/upload")
+    @PostMapping("/upload")
     public String uploadImage(@RequestParam("customizingId") String customizingId,
-                                              @RequestParam("emojiId") String emojiId,
-                                              @RequestParam("message") String message,
-                                              @RequestParam("emojiColor") String emojiColor,
-                                              @RequestParam("image") MultipartFile file) throws IOException {
+                              @RequestParam("emojiId") String emojiId,
+                              @RequestParam("message") String message,
+                              @RequestParam("emojiColor") String emojiColor,
+                              @RequestParam("image") MultipartFile file) throws IOException {
         String memberId = "user1";
+        System.out.println("!!!!!!!!!!!!!!!!!!"+customizingId+"!!!!!!!!!!!!!!!!!!!!!");
 
         // 기존 설정을 가져옴
         CustomizingSetting setting = customizingSettingService.getSettingByIdAndMemberId(customizingId, memberId);
 
+        if (setting == null) {
+            return "redirect:/error";  // customizingId가 유효하지 않으면 에러 처리
+        }
 
-
-        // 이미지 파일을 서버에 저장
-        String fileName = file.getOriginalFilename();
-        Path filePath = Paths.get(UPLOAD_DIRECTORY, fileName);
-        Files.copy(file.getInputStream(), filePath);
+        // 파일이 비어 있지 않으면 파일을 서버에 저장
+        if (file != null ) {
+            String fileName = file.getOriginalFilename();
+            Path filePath = Paths.get(UPLOAD_DIRECTORY, fileName);
+            Files.copy(file.getInputStream(), filePath);
+            setting.setImagePath(filePath.toString());  // 이미지 경로를 설정
+        }
 
         // 설정 정보 업데이트
         setting.setEmojiId(emojiId);
         setting.setMessage(message);
         setting.setEmojiColor(emojiColor);
-        setting.setImagePath(filePath.toString());  // 이미지 경로를 설정
 
         // DB에 업데이트
         customizingSettingService.updateSettings(setting);

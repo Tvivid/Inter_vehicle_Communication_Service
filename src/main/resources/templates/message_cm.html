@@ -170,8 +170,8 @@
 
     <!-- 메시지 입력 필드 -->
     <div class="message-input">
-        <img id="selected-icon" src="/images/emojis/1.png" alt="선택된 아이콘">
-        <input type="text" id="message" placeholder="텍스트를 입력하세요.." />
+        <img id="selected-icon" th:src="@{'/images/emojis/' + ${customizingSetting.emojiId} + '.png'}" alt="선택된 아이콘">
+        <input type="text" id="message"  placeholder="텍스트를 입력하세요.." />
     </div>
 
     <!-- 아이콘 선택 섹션 -->
@@ -206,8 +206,11 @@
 </div>
 
 <script>
-    let selectedEmojiId = '1'; // 기본값 설정
-    let selectedColor = '#FF0000'; // 기본 색상 설정
+    // 주석 형식이 아닌 표현식 사용
+    let customizingId = '[[${customizingSetting.customizingId}]]';  // customizingId 값을 가져옵니다
+    console.log("customizingId:", customizingId);  // 콘솔에 출력하여 값 확인
+    let selectedEmojiId = '[[${customizingSetting.emojiId}]]'; // 기본값 설정
+    let selectedColor = '[[${customizingSetting.emojiColor}]]'; // 기본 색상 설정
 
     // 이모지 선택 시 호출되는 함수
     function selectEmoji(emojiId) {
@@ -224,22 +227,28 @@
     function submitForm() {
         const message = document.getElementById('message').value;
         const fileInput = document.getElementById('file');
-        const file = fileInput.files[0];
+        const file = fileInput.files[0];  // 파일이 선택되지 않으면 undefined 또는 null이 됩니다.
 
         const formData = new FormData();
+        formData.append("customizingId", customizingId);
         formData.append("emojiId", selectedEmojiId);
         formData.append("message", message);
         formData.append("emojiColor", selectedColor);
-        formData.append("image", file);
+
+        // 파일이 선택되었을 경우에만 formData에 파일 추가
+        if (file) {
+            formData.append("image", file);
+        }
 
         // 데이터 전송
         fetch('/message_cm/upload', {
-            method: 'PUT',
+            method: 'POST',
             body: formData
         })
             .then(response => response.text())
             .then(data => {
-                alert(data);
+                alert("세팅이 변경되었습니다.");
+                window.location.href = '/message_main';  // 수정 후 message_main으로 리다이렉트
             })
             .catch(error => {
                 console.error('Error:', error);

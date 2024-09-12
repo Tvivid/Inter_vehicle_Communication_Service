@@ -51,10 +51,15 @@ public class DisplayController {
                 .map(CustomizingSetting::getCustomizingId)
                 .collect(Collectors.toList());
 
+        List<String> customizingColors = customizingSettings.stream()
+                .map(CustomizingSetting::getEmojiColor)
+                .collect(Collectors.toList());
+
 
         model.addAttribute("customizingMessages", messages);
         model.addAttribute("customizingIds", customizingIds);
         model.addAttribute("emojiPaths", emojiPaths);
+        model.addAttribute("customizingColors", customizingColors);
 
 
         return "message_main";  // 디스플레이 정보 화면 (display-info.html)
