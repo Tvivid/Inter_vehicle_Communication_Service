@@ -20,17 +20,15 @@
       background-color: #f0f0f0;
     }
 
-    /* 아이패드 디자인 컨테이너 */
     .ipad-container {
       position: relative;
-      width: 1024px; /* 아이패드의 일반적인 해상도 */
-      height: 768px; /* 아이패드의 일반적인 해상도 */
+      width: 1024px;
+      height: 768px;
       background-color: black;
       border-radius: 40px;
       box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
     }
 
-    /* 디스플레이 영역 */
     .ipad-screen {
       width: 90%;
       height: 90%;
@@ -40,16 +38,38 @@
       top: 5%;
       left: 5%;
       border-radius: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* 메시지 텍스트 스타일 */
+    .ipad-screen p {
+      font-size: 80px; /* 글자 크기 */
+      color: white;
+      animation: blink 1s infinite; /* 깜빡이는 효과 적용 */
+    }
+
+    /* 깜빡이는 효과 애니메이션 */
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
     }
 
   </style>
 </head>
 <body>
 
-  <!-- 아이패드 화면 디자인 -->
-  <div class="ipad-container">
-    <div class="ipad-screen"></div>
+<!-- 아이패드 화면 디자인 -->
+<div class="ipad-container">
+  <div class="ipad-screen">
+    <!-- Spring Controller로부터 전달된 메시지 표시 -->
+    <p th:text="${message}">메시지가 없습니다</p>
   </div>
+</div>
 
 </body>
 </html>

@@ -206,11 +206,14 @@
 </div>
 
 <script>
+
+
     // 주석 형식이 아닌 표현식 사용
     let customizingId = '[[${customizingSetting.customizingId}]]';  // customizingId 값을 가져옵니다
     console.log("customizingId:", customizingId);  // 콘솔에 출력하여 값 확인
     let selectedEmojiId = '[[${customizingSetting.emojiId}]]'; // 기본값 설정
     let selectedColor = '[[${customizingSetting.emojiColor}]]'; // 기본 색상 설정
+
 
     // 이모지 선택 시 호출되는 함수
     function selectEmoji(emojiId) {

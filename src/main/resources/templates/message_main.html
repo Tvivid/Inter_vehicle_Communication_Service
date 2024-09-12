@@ -144,7 +144,7 @@
                 <span class="emoji">😊</span>
                 <input type="text" th:value="${positiveMessage}" class="message-input" id="positiveMessage" readonly>
                 <button class="positive-edit-btn">✏️</button>
-                <button class="preview-btn" data-message-type="positive">미리보기</button>
+                <button class="positive-preview-btn" data-message-type="positive">미리보기</button>
             </div>
 
             <!-- 메시지 2 -->
@@ -152,7 +152,7 @@
                 <span class="emoji">😢</span>
                 <input type="text" th:value="${negativeMessage}" class="message-input" id="negativeMessage" readonly>
                 <button class="negative-edit-btn">✏️</button>
-                <button class="preview-btn" data-message-type="negative">미리보기</button>
+                <button class="negative-preview-btn" data-message-type="negative">미리보기</button>
             </div>
 
             <hr>
@@ -168,6 +168,34 @@
     </div>
 
     <script>
+        document.querySelectorAll('.positive-preview-btn').forEach(function(button) {
+            button.addEventListener('click', function() {
+                var messageType = this.getAttribute('data-message-type');
+                var message = '';
+
+                if (messageType === 'positive') {
+                    message = document.getElementById('positiveMessage').value;
+                }
+
+                // 메시지를 URL에 전달하여 컨트롤러로 요청
+                window.location.href = '/display?message=' + encodeURIComponent(message);
+            });
+        });
+
+        document.querySelectorAll('.negative-preview-btn').forEach(function(button) {
+            button.addEventListener('click', function() {
+                var messageType = this.getAttribute('data-message-type');
+                var message = '';
+
+                if (messageType === 'positive') {
+                    message = document.getElementById('positiveMessage').value;
+                }
+
+                // 메시지를 URL에 전달하여 컨트롤러로 요청
+                window.location.href = '/display?message=' + encodeURIComponent(message);
+            });
+        });
+
         document.querySelectorAll('.edit-btn').forEach(function(button) {
             button.addEventListener('click', function() {
                 // customizingId를 가져와서 URL에 포함
@@ -199,4 +227,6 @@
     </script>
 </body>
 
+
 </html>
+
