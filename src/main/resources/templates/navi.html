@@ -117,27 +117,54 @@
   </style>
 </head>
 <body>
-  <div class="navigation-container">
-    <!-- 왼쪽 사이드바 아이콘들 -->
-    <div class="sidebar">
-      <div class="icon">😊</div>
-      <div class="icon">😢</div>
-      <div class="icon">❤️</div>
-      <div class="icon">⭐</div>
-      <div class="icon">☀️</div>
-    </div>
+<div class="navigation-container">
+  <!-- 왼쪽 사이드바 아이콘들 -->
+  <div class="sidebar">
+    <!-- 긍정/부정 메시지 아이콘 -->
+<div class="icon positive-icon" data-message="감사합니다~~~" data-message-type="positive">😊</div>
+    <div class="icon negative-icon" data-message="안전운전 해주세요~" data-message-type="negative">😢</div>
 
-    <!-- 메인 지도 섹션 -->
-    <div class="main-content">
-
-      <!-- 지도 섹션 -->
-      <div class="map">
-        <img src="map_image.png" alt="지도 이미지">
-        <div class="distance-box">
-          시간 비슷<br>0.5km 감소
-        </div>
-      </div>
+    <!-- 커스터마이징 메시지 아이콘 -->
+    <div class="message-row" th:each="message, iterStat : ${customizingMessages}">
+      <img th:src="@{${emojiPaths[iterStat.index]}}"
+           data-customizing-id="${customizingIds[iterStat.index]}"
+           data-message="${message}"
+           alt="emoji"
+           class="icon custom-icon" />
     </div>
   </div>
+
+  <!-- 메인 지도 섹션 -->
+  <div class="main-content">
+    <div class="map">
+      <img src="map_image.png" alt="지도 이미지">
+      <div class="distance-box">시간 비슷<br>0.5km 감소</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Positive message
+  document.querySelector('.positive-icon').addEventListener('click', function() {
+    const message = this.getAttribute('data-message');
+    window.location.href = '/display?message=' + encodeURIComponent(message);
+  });
+
+  // Negative message
+  document.querySelector('.negative-icon').addEventListener('click', function() {
+    const message = this.getAttribute('data-message');
+    window.location.href = '/display?message=' + encodeURIComponent(message);
+  });
+
+  // Custom messages
+  document.querySelectorAll('.message-row').forEach(function(button) {
+    button.addEventListener('click', function() {
+      const customizingId = this.getAttribute('data-customizing-id');
+      // 커스터마이징 ID와 메시지를 서버로 전달
+      const url = `/display-image?customizingId=${customizingId}}`;
+      window.location.href = url;
+    });
+  });
+</script>
 </body>
 </html>

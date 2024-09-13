@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/message_cm")
@@ -55,8 +56,11 @@ public class CustomizingSettingController {
 
         // 파일이 비어 있지 않으면 파일을 서버에 저장
         if (file != null && !file.isEmpty()) {
-            String fileName = file.getOriginalFilename();  // 파일명에 타임스탬프 추가
-            Path filePath = Paths.get(UPLOAD_DIRECTORY, fileName);
+            String originalFileName = file.getOriginalFilename();
+            String extension = originalFileName.substring(originalFileName.lastIndexOf("."));  // 파일 확장자 추출
+            String uniqueFileName = UUID.randomUUID().toString() + extension;  // UUID를 사용하여 고유한 파일명 생성
+
+            Path filePath = Paths.get(UPLOAD_DIRECTORY, uniqueFileName);
 
             // 디렉토리가 없으면 생성
             if (!Files.exists(filePath.getParent())) {
@@ -64,8 +68,9 @@ public class CustomizingSettingController {
             }
 
             Files.copy(file.getInputStream(), filePath);
+
             // 저장된 경로를 웹에서 접근 가능한 상대 경로로 설정
-            setting.setImagePath("/uploads/" + fileName);
+            setting.setImagePath("/uploads/" + uniqueFileName);
         }
 
         // 설정 정보 업데이트
