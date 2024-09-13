@@ -18,7 +18,8 @@ import java.nio.file.Paths;
 @RequestMapping("/message_cm")
 public class CustomizingSettingController {
 
-    private static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/uploads";
+    // 파일을 static/uploads 폴더에 저장
+    private static final String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/src/main/resources/static/uploads";
 
     @Autowired
     private CustomizingSettingService customizingSettingService;
@@ -26,7 +27,7 @@ public class CustomizingSettingController {
     // customizingId에 해당하는 설정을 화면에 표시
     @GetMapping
     public String customizingSetting(@RequestParam("customizingId") String customizingId, Model model) {
-        String memberId="user1";
+        String memberId = "user1";
 
         CustomizingSetting setting = customizingSettingService.getSettingByIdAndMemberId(customizingId, memberId);
 
@@ -34,7 +35,7 @@ public class CustomizingSettingController {
             model.addAttribute("customizingSetting", setting);
         }
 
-        return "message_cm";  // 메시지 수정 화면 (edit-message.html)
+        return "message_cm";  // 메시지 수정 화면
     }
 
     // 수정사항을 DB에 반영
@@ -45,7 +46,6 @@ public class CustomizingSettingController {
                               @RequestParam("image") MultipartFile file) throws IOException {
         String memberId = "user1";
 
-
         // 기존 설정을 가져옴
         CustomizingSetting setting = customizingSettingService.getSettingByIdAndMemberId(customizingId, memberId);
 
@@ -54,17 +54,23 @@ public class CustomizingSettingController {
         }
 
         // 파일이 비어 있지 않으면 파일을 서버에 저장
-        if (file != null ) {
-            String fileName = file.getOriginalFilename();
+        if (file != null && !file.isEmpty()) {
+            String fileName = file.getOriginalFilename();  // 파일명에 타임스탬프 추가
             Path filePath = Paths.get(UPLOAD_DIRECTORY, fileName);
+
+            // 디렉토리가 없으면 생성
+            if (!Files.exists(filePath.getParent())) {
+                Files.createDirectories(filePath.getParent());
+            }
+
             Files.copy(file.getInputStream(), filePath);
-            setting.setImagePath(filePath.toString());  // 이미지 경로를 설정
+            // 저장된 경로를 웹에서 접근 가능한 상대 경로로 설정
+            setting.setImagePath("/uploads/" + fileName);
         }
 
         // 설정 정보 업데이트
         setting.setEmojiId(emojiId);
         setting.setMessage(message);
-
 
         // DB에 업데이트
         customizingSettingService.updateSettings(setting);

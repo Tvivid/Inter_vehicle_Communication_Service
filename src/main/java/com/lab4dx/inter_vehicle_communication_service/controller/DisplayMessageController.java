@@ -28,6 +28,8 @@ public class DisplayMessageController {
 
         String memberId = "user1";
         CustomizingSetting customizingSetting = customizingSettingService.getSettingByIdAndMemberId(customizingId, memberId);
+        // 값 로그로 출력
+        System.out.println("Image Path: " + customizingSetting.getImagePath());
 
         model.addAttribute("customizingSetting", customizingSetting);
         return "image_display";

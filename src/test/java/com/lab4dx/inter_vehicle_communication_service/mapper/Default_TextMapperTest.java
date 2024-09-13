@@ -27,26 +27,67 @@ class Default_TextMapperTest {
     @Test
     void insertDefaultText() {
         Default_Text default_text = new Default_Text();
-        default_text.setTextId("text3");
+//        default_text.setTextId("text3");
+//        default_text.setSentiment("positive");
+//        default_text.setText("안전운전하세요~");
+//        defaultTextMapper.insertDefaultText(default_text);
+//
+//        default_text.setTextId("text1");
+//        default_text.setSentiment("positive");
+//        default_text.setText("Thank you you");
+//        defaultTextMapper.insertDefaultText(default_text);
+//
+//        default_text.setTextId("text2");
+//        default_text.setSentiment("positive");
+//        default_text.setText("감사합니다");
+//        defaultTextMapper.insertDefaultText(default_text);
+//
+//
+//        default_text.setTextId("text4");
+//        default_text.setSentiment("negative");
+//        default_text.setText("Stop!!!");
+//        defaultTextMapper.insertDefaultText(default_text);
+
+        default_text.setTextId("text5");
         default_text.setSentiment("positive");
-        default_text.setText("안전운전하세요~");
+        default_text.setText("복 받으실 거예요!");
         defaultTextMapper.insertDefaultText(default_text);
 
-        default_text.setTextId("text1");
+        default_text.setTextId("text6");
         default_text.setSentiment("positive");
-        default_text.setText("Thank you you");
+        default_text.setText("안전운전 하세요");
         defaultTextMapper.insertDefaultText(default_text);
 
-        default_text.setTextId("text2");
+        default_text.setTextId("text7");
         default_text.setSentiment("positive");
-        default_text.setText("감사합니다");
+        default_text.setText("덕분에 무사히 갑니다");
         defaultTextMapper.insertDefaultText(default_text);
 
-
-        default_text.setTextId("text4");
+        default_text.setTextId("text8");
         default_text.setSentiment("negative");
-        default_text.setText("Stop!!!");
+        default_text.setText("조심운전 해주세요");
         defaultTextMapper.insertDefaultText(default_text);
+
+        default_text.setTextId("text9");
+        default_text.setSentiment("negative");
+        default_text.setText("상향등 꺼주세요");
+        defaultTextMapper.insertDefaultText(default_text);
+
+        default_text.setTextId("text10");
+        default_text.setSentiment("negative");
+        default_text.setText("라이트가 너무 밝아요");
+        defaultTextMapper.insertDefaultText(default_text);
+
+        default_text.setTextId("text11");
+        default_text.setSentiment("negative");
+        default_text.setText("차선에서 자주 이탈합니다");
+        defaultTextMapper.insertDefaultText(default_text);
+
+        default_text.setTextId("text12");
+        default_text.setSentiment("negative");
+        default_text.setText("깜빡이 켜주세요");
+        defaultTextMapper.insertDefaultText(default_text);
+
     }
 
 //    @Test
