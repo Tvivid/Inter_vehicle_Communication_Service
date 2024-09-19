@@ -154,7 +154,7 @@ https://drive.google.com/file/d/1kcixuKFD_AqgQKYAkwWIKjUXR340kWfz/view?usp=shari
 # 팀원역할
     
 - 이지연(팀장, 유니티 제작, 디자인, ppt 제작)
-- 진선명(백엔드 개발, ppt 제작)
+- 진선명(백엔드 개발, 프론트 개발)
 - 이예진(프론트 개발, ppt 제작)
 - 김서현(프론트 개발, ppt 제작)
 - 송정민(백엔드 개발, ppt 제작)
