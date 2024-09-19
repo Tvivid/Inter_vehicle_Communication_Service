@@ -142,7 +142,7 @@ UI 구현 : 2024.09.05 ~ 2024.09.06
 
 
 # 최종 ppt
-file:///C:/Users/trainee128/Downloads/%EC%B5%9C%EC%A2%85_CX_4%ED%8C%80%EB%84%A4%EC%9E%8E%ED%81%B4%EB%A1%9C%EB%B2%84_%EB%B0%9C%ED%91%9C.pdf 
+https://drive.google.com/file/d/1kcixuKFD_AqgQKYAkwWIKjUXR340kWfz/view?usp=sharing
     
 # 팀원역할
     
