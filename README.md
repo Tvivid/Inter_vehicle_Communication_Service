@@ -13,9 +13,9 @@
     - 인포테인먼트와 디스플레이를 연결하여 송출하고자 하는 메세지,이모티콘,이모지를 선택할 수 있습니다.
 
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/fcef9ffa-31f3-4c45-8936-e5a8fcbdd843/c86fae26-8d57-4c01-8190-7466c1612757/image.png)
+![0fdcabf4-495d-47dc-8b4b-9ce0fd439f80](https://github.com/user-attachments/assets/58ac47dd-f670-4b94-8583-0428717fc08f)
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/fcef9ffa-31f3-4c45-8936-e5a8fcbdd843/848f2338-31a7-4dd8-ad70-1a9e9e8a2059/image.png)
+![image2](https://github.com/user-attachments/assets/03235251-8f95-495e-a93f-4e77deecf16e)
 
 # 프로젝트기간
     
@@ -46,8 +46,6 @@
 <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"/> 
 
 <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white"/> 
-
-<img src=”https://img.shields.io/badge/-C%23-000000?logo=Csharp&style=flat”/>
 
 <img src="https://img.shields.io/badge/Oracle 11g-F80000?style=for-the-badge&logo=Oracle&logoColor=white"/>
 
@@ -129,19 +127,19 @@
     
 # 서비스 흐름도
     
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/fcef9ffa-31f3-4c45-8936-e5a8fcbdd843/cd45cd3e-a9e1-4ed1-afa1-e06cda1b0e0d/image.png)
+![서비스 흐름도](https://github.com/user-attachments/assets/629c014d-322b-403a-8648-efee54801749)
     
 # ERD 다이어그램
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/fcef9ffa-31f3-4c45-8936-e5a8fcbdd843/d439d8f7-e3cb-4305-9f13-d1ff14d43e5d/image.png)
+![ERD 다이어그램](https://github.com/user-attachments/assets/11ccc5da-57a5-49b8-848b-a94df42493e7)
 
 # 화면구성
     
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/fcef9ffa-31f3-4c45-8936-e5a8fcbdd843/66689afb-625e-45c0-b4e4-71cfefb76c89/image.png)
+![화면구성1](https://github.com/user-attachments/assets/7d32ffbc-a9ca-4c85-852c-a35c11d4fd65)
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/fcef9ffa-31f3-4c45-8936-e5a8fcbdd843/2c858c06-4962-495d-b0a7-e62aa01b19a4/image.png)
+![화면구성2](https://github.com/user-attachments/assets/797a5a2a-25d9-40c6-890b-1a2f9c63dcb0)
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/fcef9ffa-31f3-4c45-8936-e5a8fcbdd843/753c5d7a-6cff-487f-8eae-147ee1ef5bae/image.png)
+![화면구성3](https://github.com/user-attachments/assets/3868480b-4483-4aaf-805e-dd85bf8772cd)
     
 # 팀원역할
     
