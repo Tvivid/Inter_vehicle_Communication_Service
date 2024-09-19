@@ -37,20 +37,18 @@ UI 구현 : 2024.09.05 ~ 2024.09.06
 # 기술스택
    
     
-<img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white">
-<img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+<img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white"><img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
 
-<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
 
-<img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"/> 
 
-<img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white"/> 
 
-<img src="https://img.shields.io/badge/Oracle 11g-F80000?style=for-the-badge&logo=Oracle&logoColor=white"/>
+<img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"/> <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white"/> <img src="https://img.shields.io/badge/Oracle 11g-F80000?style=for-the-badge&logo=Oracle&logoColor=white"/>
+
+
 
 <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>
 
-<img src="https://img.shields.io/badge/Oracle 11g-F80000?style=for-the-badge&logo=Oracle&logoColor=white"/> 
+
 
 # 시스템 아키텍처
 
@@ -146,10 +144,10 @@ file:///C:/Users/trainee128/Downloads/%EC%B5%9C%EC%A2%85_CX_4%ED%8C%80%EB%84%A4%
     
 # 팀원역할
     
-이지연(팀장, 유니티 제작, 디자인, ppt 제작)
-진선명(백엔드 개발, ppt 제작)
-이예진(프론트 개발, ppt 제작)
-김서현(프론트 개발, ppt 제작)
-송정민(백엔드 개발, ppt 제작)
+- 이지연(팀장, 유니티 제작, 디자인, ppt 제작)
+- 진선명(백엔드 개발, ppt 제작)
+- 이예진(프론트 개발, ppt 제작)
+- 김서현(프론트 개발, ppt 제작)
+- 송정민(백엔드 개발, ppt 제작)
 
 
