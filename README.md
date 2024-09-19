@@ -13,9 +13,10 @@
 - 인포테인먼트와 디스플레이를 연결하여 송출하고자 하는 메세지,이모티콘,이모지를 선택할 수 있습니다.
 
 
-![0fdcabf4-495d-47dc-8b4b-9ce0fd439f80](https://github.com/user-attachments/assets/58ac47dd-f670-4b94-8583-0428717fc08f)
-
+![0fdcabf4-495d-47dc-8b4b-9ce0fd439f80](https://github.com/user-attachments/assets/58ac47dd-f670-4b94-8583-0428717fc08f) 
 ![image2](https://github.com/user-attachments/assets/03235251-8f95-495e-a93f-4e77deecf16e)
+
+
 
 # 프로젝트기간
     
@@ -137,6 +138,14 @@ UI 구현 : 2024.09.05 ~ 2024.09.06
 ![화면구성2](https://github.com/user-attachments/assets/797a5a2a-25d9-40c6-890b-1a2f9c63dcb0)
 
 ![화면구성3](https://github.com/user-attachments/assets/3868480b-4483-4aaf-805e-dd85bf8772cd)
+
+![홈화면](https://github.com/user-attachments/assets/0d7dd569-1cd1-4575-b07c-682079384879)
+![로그인](https://github.com/user-attachments/assets/1f50a9d5-b0a9-4396-b08d-2ad093fc2898)
+![회원가입](https://github.com/user-attachments/assets/36e05b3d-fc98-4af2-9a70-d086f8e0ed30)
+![홈화면2](https://github.com/user-attachments/assets/e89e55c1-de70-4ad7-9e2f-4a1e84a8f824)
+![메세지 메인](https://github.com/user-attachments/assets/0d6ba513-3d04-4f25-9829-b4caaa57178f)
+![메세지 기본](https://github.com/user-attachments/assets/6d58e9e1-f044-4163-8be1-05c8d0902c8c)
+![메세지 설정](https://github.com/user-attachments/assets/641e2d04-269d-4277-8190-737bd0825d2c)
 
 
 # 최종 ppt
